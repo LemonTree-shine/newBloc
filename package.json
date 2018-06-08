@@ -1,0 +1,46 @@
+{
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "copy-webpack-plugin": "^4.2.0",
+    "css-loader": "^0.28.5",
+    "express": "^4.15.4",
+    "express-session": "^1.15.6",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "multer": "^1.3.0",
+    "mysql": "^2.15.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^2.8.1",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "reload": "^2.2.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2"
+  },
+  "dependencies": {
+    "react-router": "^4.1.2"
+  },
+  "scripts": {
+    "dev": "node app.js",
+    "build": "NODE_ENV=production webpack",
+    "prod": "NODE_ENV=production webpack --config webpack.config.prod.js"
+  },
+  "port": "1234"
+}
