@@ -1,0 +1,115 @@
+.leaveword{
+    width: 1000px;
+    margin: 0 auto;
+    //background: #ffffff;
+    margin-top: 1.5rem;
+    padding-bottom: 20px;
+    .list-box{
+        padding: 0 20px;
+        border-radius: 5px;
+        background: #ffffff; 
+        .list{
+            padding: 20px 0 20px 0;
+            border-bottom: 1px dashed #ccc;
+            &:last-child{
+                border-bottom: 1px dashed transparent;
+            }
+            .head{
+                width: 70px;
+                height: 70px;
+                background: #ccc;
+            }
+            .name-text{
+                margin-left: 85px;
+                color:#666;
+                .name{
+                    font-weight: 700;
+                    color:#000000;
+                }
+                .text{
+                    margin-top:3px;
+                    line-height: 22px;
+                }
+                .time{
+                    margin-top: 15px;
+                    text-align: right;
+                    font-weight: 700;
+                    color:#8790e8;
+                }
+            }
+        }
+    }
+    .form-input{
+        width: 1000px;
+        // position: fixed;
+        // bottom:10px;
+        // left: auto;
+        // right: auto;
+        background: #ffffff;
+        border-radius: 5px;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top:20px;
+        input{
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            outline: none;
+            transition: border .3s;
+            &:focus{
+                border:1px solid #666;
+                transition: border .3s;
+            }
+        }
+        textarea{
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            outline: none;
+            margin-top:10px;
+            transition: border .3s;
+            &:focus{
+                border:1px solid #666;
+                transition: border .3s;
+            }
+        }
+        button{
+            float: right;
+            padding: 8px 12px;
+            color: #ffffff;
+            background: #3381f7;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 1.3rem;
+            outline: none;
+            &:hover{
+                background: #1e70ec;
+            }
+        }
+    }
+}
+.allDrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #ffffff;
+        padding: 50px 106px;
+        font-size: 27px;
+        border-radius: 5px;
+        transform: translate(-50%,-50%);
+    }
+}

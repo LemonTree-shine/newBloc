@@ -1,0 +1,324 @@
+@keyframes Rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+// base页面样式
+.circle-box{
+    width: 20%;
+    padding-top: 20%;
+    border-radius: 50%;
+    background: #b4c2f5;
+    margin: 0px 10px 20px 0px;
+    //float: left;
+    display: inline-block;
+}
+
+@keyframes bordershow{
+    0%{
+        border-top:50px solid #6981f7;
+        border-right:50px solid #cd69f7;
+    }
+    50%{
+        border-top:50px solid transparent;
+        border-right:50px solid transparent;
+    }
+    100%{
+        border-top:50px solid #6981f7;
+        border-right:50px solid #cd69f7;
+    }
+}
+
+.base-box.triangle{
+    .right-forword{
+        height: 0;
+        width: 0;
+        border-top:50px solid transparent;
+        border-bottom:50px solid transparent;
+        border-left:100px solid #6981f7;
+        border-right:0px solid #6981f7;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .left-forword{
+        height: 0;
+        width: 0;
+        border-top:50px solid transparent;
+        border-bottom:50px solid transparent;
+        border-right:100px solid #6981f7;
+        border-left:0px solid #6981f7;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .left-top{
+        height: 0;
+        width: 0;
+        border-top:50px solid #6981f7;
+        border-right:50px solid #cd69f7;
+        border-bottom:50px solid #6981f7;
+        border-left:50px solid #cd69f7;
+        display: inline-block;
+        margin-right: 20px;
+        animation:bordershow 16s infinite;
+    }
+    .tixing{
+        height: 0;
+        width: 0;
+        border-top:50px solid transparent;
+        border-right:0px solid transparent;
+        border-bottom:50px solid #6981f7;
+        border-left:50px solid #cd69f7;
+        display: inline-block;
+    }
+}
+
+.base-box{
+ margin-top:25px;
+}
+
+.base-box.duanluo{
+    .box{
+        overflow: hidden;
+        .title{
+            position: relative;
+            display: inline-block;
+        }
+        .title:after{
+            content: "";
+            display: block;
+            height: 1px;
+            width: 10000px;
+            background: #000000;
+            position: absolute;
+            top:50%;
+            left: 100%;
+            transform: translateX(10px);
+        }
+    }
+}
+
+.base-box.center{
+    .box{
+        width: 100%;
+        height: 200px;
+        background: #7ca4de;
+        position: relative;
+        .content{
+            width: 50%;
+            height: 50%;
+            background: #417784;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+
+
+//css3页面样式
+.css3-skills{
+    .text-gradient{
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        background: linear-gradient(to right, #ea31d4, #e4a85d);
+        -webkit-background-clip:text;
+        color:transparent;
+        font-size: 30px;
+        font-weight: 700;
+    } 
+
+    //眼睛样式
+    .eyes{
+        .box{
+            width: 51px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            top: 0;
+            left: 50px;
+        }
+        .second{
+            width: 1050px;
+            height: 500px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin-top: -175px;
+        }
+        .cicleLeft{
+            width: 1050px;
+            height: 500px;
+            border-radius: 100%;
+            position: absolute;
+            top: -175px;
+            left: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .cicleRight{
+            width: 1050px;
+            height: 500px;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            right: 1000px;
+            box-sizing: border-box;
+            background: #d00b0b;
+            overflow: hidden;
+        }
+        
+        .eye-box{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #000000;
+            position: relative;
+            //margin: 10px auto;
+            display: inline-block;
+        }
+        .box2{
+            transform: rotate(60deg);
+            margin-top: -150px;
+        }
+        .box3{
+            transform: rotate(120deg);
+            margin-top: -150px;
+        }
+        
+        .eye-box2{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            margin:0;
+            margin-top: -150px;
+        }
+        .eye-box2 .cicleLeft{
+            border:1px solid #000000;
+        }
+        .eye-box2 .cicleRight{
+            border:1px solid #000000;
+            background: transparent;
+            right: 998px;
+        }
+        .centerCircle{
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            background: #000000;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .centerCircle2{
+            width: 6px;
+            height: 5px;
+            border-radius: 100%;
+            background: #ffffff;
+            position: absolute;
+            top: 42%;
+            left: 42%;
+            transform: translate(-50%,-50%);
+            opacity: 0.8;
+            box-shadow: 0px 0px 10px 8px #ffffff;
+        }
+        
+        /*带土眼睛样式*/
+        .demo{
+            width: 25px;
+            height: 75px;
+            overflow: hidden;
+            z-index: 1000;
+            position: relative;
+        }
+        .datu-1{
+            width: 25px;
+            height: 150px;
+            border-radius: 100%;
+            background: #000000;
+        }
+        
+        
+        .dt-box{
+            width: 25px;
+            height: 150px;
+            position: relative;
+            top: 0;
+            left: 62px;
+        }
+        .daitu-circle{
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #d00b0b;
+            z-index: 2000;
+            border-radius: 100%;
+        }
+        .dt-box2{
+            transform: rotate(120deg);
+            margin-top: -150px;
+        }
+        .dt-box3{
+            transform: rotate(240deg);
+            margin-top: -150px;
+        }
+        .datu-2{
+            width: 50px;
+            height: 100px;
+            position: absolute;
+            top: -1px;
+            overflow: hidden;
+            left: 12px;
+        }
+        .dt-cicle1{
+            width: 110px;
+            height: 184px;
+            background: #000000;
+            border-radius: 100%;
+            margin-left: -60px;
+        }
+        .dt-cicle2{
+            width: 134px;
+            height: 600px;
+            background: #d00b0b;
+            border-radius: 100%;
+            margin-left: -60px;
+            margin-top: -153px;
+        }
+        
+        .datu-box{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #d00b0b;
+            position: relative;
+            //margin: 10px auto;
+            border: 5px solid #000000;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 10px;
+            animation: Rotate 3s linear;
+        }
+        .datu-box .shdow{
+            width: 17px;
+            height: 20px;
+            background: #d00b0b;
+            position: absolute;
+            left: 87px;
+            top: 48px;
+            z-index: 200;
+        }
+    } 
+}
+
+
