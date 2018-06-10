@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>模版</title>
+	<script>
+		(function () {
+			var phoneScale = parseInt(window.screen.width) / 750;
+			document.write('<meta name="viewport" content="width=750, minimum-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=no">');
+		})();
+	</script>
+	<link href="assets/css/monokai_sublime.min.css" rel="stylesheet">  
+	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+    <script src="assets/js/highlight.min.js"></script>  
+	<script>
+		setTimeout(function(){
+			hljs.initHighlightingOnLoad();
+		},0);
+	</script>  
+	<script>
+		window.ENVPATH = /www\.xiaogangji\.com/.test(window.location)?"http://www.xiaogangji.com/":"http://localhost:8081/";
+	</script>
+	<script src="assets/ajax.js"></script>
+</head>
+<body>
+	<div id="contain"></div>
+<script type="text/javascript" src="js/index.07f0c38c53f79cca3c8c.js"></script></body>
+</html>
