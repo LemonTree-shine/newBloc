@@ -26,7 +26,7 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/',express.static(__dirname));
+app.use('/dist',express.static(__dirname));
 
 //读取package.json
 var json = fs.readFileSync("./package.json","utf-8");

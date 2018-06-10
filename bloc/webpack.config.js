@@ -23,7 +23,7 @@ let PLUGIN = [
 	}),
 	new CopyWebpackPlugin([{
 		from:__dirname + '/assets',
-		to:__dirname+"/build/assets"
+		to:__dirname+"/dist/assets"
 	}])
 ];
 
@@ -42,7 +42,7 @@ if(process.env.NODE_ENV === "production"){
 configs = {
 	entry:{index:['./src/index.js']},
 	output:{
-		path:__dirname+"/build",
+		path:__dirname+"/dist",
 		filename:"js/[name].[hash].js"
 	},
 	module:{
