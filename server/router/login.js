@@ -60,7 +60,6 @@ router.all("*",function (req, res, next) {
     res.header("X-Powered-By",' 3.2.1')
     res.header("Content-Type", "application/json;charset=utf-8");
 
-    console.log(req.session)
     if(req.url == "/login"){
         next();
         return;
@@ -152,6 +151,7 @@ router.use("/deploy",function(req,res,next){
     child.execFile('./start.sh',function (err, stdout, stderr) {
         //console.log(stdout);
         if(err){
+            console.log(err)
             res.send({
                 data:err
             }); 
