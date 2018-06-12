@@ -22,7 +22,6 @@ let PLUGIN = [
 		template: 'index.html', // 模板路径
 		filename:"index.html"
 	}),
-	new CleanWebpackPlugin(['dist']),
 	new CopyWebpackPlugin([{
 		from:__dirname + '/assets',
 		to:__dirname+"/dist/assets"
@@ -36,7 +35,7 @@ if(process.env.NODE_ENV === "production"){
 		compress: {
 			warnings: false
 		}
-	})];	
+	}),new CleanWebpackPlugin(['dist'])];	
 }else{
 	configs.devtool = 'source-map';
 }
