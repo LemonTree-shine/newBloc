@@ -21,7 +21,7 @@ export default class Index extends Component{
                     <img src="assets/images/5.jpeg" alt=""/>
                     <div className="banner-tips">简介灵活的react</div>
                 </div>
-                <div className="banner-list">
+                <div className="banner-list" onClick={()=>{this.queryData("interview")}}>
                     <img src="assets/images/3.jpeg" alt=""/>
                     <div className="banner-tips">面试题二三事</div>
                 </div>
@@ -126,16 +126,20 @@ export default class Index extends Component{
         });
     }
     queryData = (type)=>{
-        Ajax({
-            url:window.ENVPATH+"index",
-            type:"post",
-            data:{type:type},
-            success:(data)=>{
-                console.log(data.data);
-                this.setState({
-                    list:data.data
-                });
-            }
-        });
+        switch(type){
+            case "css":
+                location.replace("/#/csslist/base");
+                break;
+            case "js":
+                location.replace("/#/jslist/closure");
+                break;
+            case "interview":
+                location.replace("/#/home/interview");
+                break;
+            default:
+                return false;
+        }
+            
+        
     }
 }
