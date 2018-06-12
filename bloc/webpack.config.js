@@ -4,6 +4,7 @@ var fs = require('fs');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 var entre = {};
@@ -21,6 +22,7 @@ let PLUGIN = [
 		template: 'index.html', // 模板路径
 		filename:"index.html"
 	}),
+	new CleanWebpackPlugin(['dist']),
 	new CopyWebpackPlugin([{
 		from:__dirname + '/assets',
 		to:__dirname+"/dist/assets"
