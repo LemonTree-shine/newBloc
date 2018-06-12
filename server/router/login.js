@@ -157,7 +157,7 @@ router.use("/deploy",function(req,res,next){
             }); 
         }else{
             res.send({
-                data:"部署失败"
+                data:"部署成功"
             });
         }
     });
