@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser"); //读取cookie
 const session = require('express-session');
 const mysql = require("mysql");
+const child = require('child_process');
 
 var router = express.Router();
 
@@ -74,6 +75,7 @@ router.all("*",function (req, res, next) {
     }
 });
 
+//登录接口
 router.use("/login", function (req, res, next) {
     console.log(req.body)
     db.query(`SELECT * FROM admin_db WHERE username='${JSON.parse(req.body).username}'`,(err,data)=>{
@@ -107,7 +109,7 @@ router.use("/login", function (req, res, next) {
     })
 });
 
-
+//获取用户信息
 router.use("/getUser", function (req, res, next) {
 
     res.send({
@@ -119,6 +121,7 @@ router.use("/getUser", function (req, res, next) {
     });
 });
 
+//加载留言列表
 router.use("/leaveWordList", function (req, res, next) {
 
     db.query(`SELECT * FROM leaveword_db`,(err,data)=>{
@@ -130,6 +133,7 @@ router.use("/leaveWordList", function (req, res, next) {
     })
 });
 
+//留言审批
 router.use("/approval", function (req, res, next) {
 
     db.query(`UPDATE leaveword_db SET approval = '1' WHERE ID = '${JSON.parse(req.body).id}'`,(err,data)=>{
@@ -142,5 +146,21 @@ router.use("/approval", function (req, res, next) {
             //console.log();
     })
 });
+
+//部署接口
+router.use("/deploy",function(req,res,next){
+    child.execFile('./start.sh',function (err, stdout, stderr) {
+        //console.log(stdout);
+        if(err){
+            res.send({
+                data:"部署成功"
+            }); 
+        }else{
+            res.send({
+                data:"部署失败"
+            });
+        }
+    });
+})
 
 module.exports = router;

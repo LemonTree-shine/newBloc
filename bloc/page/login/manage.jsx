@@ -4,7 +4,8 @@ import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter }
 
 export default class Manage extends Component{
     render(){
-        return <div>
+        return <div style={{paddingTop:"20px"}}>
+            <button onClick={this.bushu} style={{padding:"10px",marginBottom:"20px",marginLeft:"10px"}}>部署</button>
             <table style={{"width":"100%"}}>
                 <tbody>
                     <tr>
@@ -76,6 +77,15 @@ export default class Manage extends Component{
             data:{id:value.ID},
             success:(data)=>{
                 this.getList();
+            }
+        });
+    }
+
+    bushu = ()=>{
+        Ajax({
+            url:window.ENVPATH+"manage/deploy",
+            type:"post",
+            success:(data)=>{
             }
         });
     }
