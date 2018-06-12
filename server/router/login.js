@@ -153,7 +153,7 @@ router.use("/deploy",function(req,res,next){
         //console.log(stdout);
         if(err){
             res.send({
-                data:"部署成功"
+                data:err
             }); 
         }else{
             res.send({
