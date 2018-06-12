@@ -86,7 +86,7 @@ export default class Manage extends Component{
             url:window.ENVPATH+"manage/deploy",
             type:"post",
             success:(data)=>{
-                alert("部署成功以后重新启动web服务器");
+                alert("adsasdasdasdasdasdasd");
             }
         });
     }
