@@ -105,7 +105,7 @@ class IndexPage extends Component{
 				name:"字符串",
 				link:"/jslist/string"
 			},{
-				name:"数组",
+				name:"数组方法",
 				link:"/jslist/array"
 			},{
 				name:"对象",
