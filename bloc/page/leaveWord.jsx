@@ -10,7 +10,9 @@ export default class LeaveWord extends Component{
             <div className="list-box">
                 {this.state.leaveList.map((value,index)=>{
                     return <div className="list clearfix" key={value.ID}>
-                        <div className="head left"></div>
+                        <div className="head left">
+                            <img src={`assets/head/${value.img}.jpg`} alt=""/>
+                        </div>
                         <div className="name-text">
                             <div className="name">{value.name}</div>
                             <div className="text">{value.leave_word}</div>

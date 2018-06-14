@@ -149,7 +149,7 @@ server.post("/updateLeaveWord",function(req,res){
     /**
      * 数据查询
     */
-   db.query(`INSERT INTO leaveword_db (name, leave_word,time) VALUES ('${name}', '${text}','${new Date().getTime()}')`,(err,data)=>{
+   db.query(`INSERT INTO leaveword_db (name, leave_word,time,img) VALUES ('${name}', '${text}','${new Date().getTime()}','2')`,(err,data)=>{
         if(err)
             console.log(err);
         else{
