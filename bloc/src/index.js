@@ -26,6 +26,10 @@ import Layout from "../page/css/layout";
 /**
  * 这里开始引入js页面
 */
+import StringPage from "../page/js/stringPage";
+import ArrayPage from "../page/js/arrayPage";
+import ObjPage from "../page/js/objPage";
+
 import Closure from "../page/js/closure";
 import Prototype from "../page/js/prototype";
 import CallApply from "../page/js/callApply";
@@ -62,10 +66,13 @@ class IndexPage extends Component{
 			</Switch>
 			{/* js页面一级路由 */}
 			<Switch>
-				<Redirect from="/jslist" exact to="/jslist/closure" />
+				<Redirect from="/jslist" exact to="/jslist/string" />
 				<Route path="/jslist"  render={()=>{
 					return <ListCommon menu={this.state.jsmenu}>
 						{/* 二级路由 */}
+						<Route path="/jslist/string" component={StringPage}></Route>
+						<Route path="/jslist/array" component={ArrayPage}></Route>
+						<Route path="/jslist/object" component={ObjPage}></Route>
 						<Route path="/jslist/closure" component={Closure}></Route>
 						<Route path="/jslist/prototype" component={Prototype}></Route>
 						<Route path="/jslist/callApply"  component={CallApply}></Route>
@@ -93,7 +100,17 @@ class IndexPage extends Component{
 				name:"css小展示",
 				link:"/csslist/show"
 			}],
+			//js页面菜单
 			jsmenu:[{
+				name:"字符串",
+				link:"/jslist/string"
+			},{
+				name:"数组",
+				link:"/jslist/array"
+			},{
+				name:"对象",
+				link:"/jslist/object"
+			},{
 				name:"js闭包",
 				link:"/jslist/closure"
 			},{
