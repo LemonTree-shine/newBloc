@@ -2,6 +2,7 @@ import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
 import "../style/leaveword.less";
+import {formatDate} from "../tool/util.js"
 
 export default class LeaveWord extends Component{
     render(){
@@ -13,7 +14,7 @@ export default class LeaveWord extends Component{
                         <div className="name-text">
                             <div className="name">{value.name}</div>
                             <div className="text">{value.leave_word}</div>
-                            <div className="time">Time:{value.time}</div>
+                            <div className="time">Time:{formatDate(Number(value.time),"yyyy-MM-dd HH:mm:ss")}</div>
                         </div>
                     </div>
                 })}
