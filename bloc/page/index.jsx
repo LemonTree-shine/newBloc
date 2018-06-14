@@ -131,7 +131,7 @@ export default class Index extends Component{
                 location.replace("/#/csslist/base");
                 break;
             case "js":
-                location.replace("/#/jslist/closure");
+                location.replace("/#/jslist/string");
                 break;
             case "interview":
                 location.replace("/#/home/interview");
