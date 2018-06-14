@@ -28,7 +28,7 @@ var login = require("./router/login.js");
 server.use("/manage",login);
 
 //链接数据库
-var db = mysql.createConnection({
+var db = mysql.createPool({
     host:"127.0.0.1",
     user:"root",
     password:"123456",
@@ -149,7 +149,7 @@ server.post("/updateLeaveWord",function(req,res){
     /**
      * 数据查询
     */
-   db.query(`INSERT INTO leaveword_db (name, leave_word,time) VALUES ('${name}', '${text}','2018-05-18')`,(err,data)=>{
+   db.query(`INSERT INTO leaveword_db (name, leave_word,time) VALUES ('${name}', '${text}','${new Date().getTime()}')`,(err,data)=>{
         if(err)
             console.log(err);
         else{
