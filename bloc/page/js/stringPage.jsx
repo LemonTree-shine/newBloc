@@ -35,7 +35,7 @@ export default class StringPage extends Component{
 {`
 可以用正则表达式匹配：
 var a = "aaa bbb ccc ddd";
-var b = a.replace(/(\b|\s{1,})[a-z]/g,function(value){
+var b = a.replace(/(\\b|\\s{1,})[a-z]/g,function(value){
     return value.toUpperCase();  //匹配首字母，对首字母大写
 });
 console.log(b); //"Aaa Bbb Ccc Ddd"
@@ -47,16 +47,16 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
                     <code>
                         <div>match:返回一个数组，内容是所有匹配的值；</div>
                         <div>var a = "aaa bbb ccc ddd";</div>
-                        <div>var b = a.match(/[a-z]{3}/g);</div>
+                        <div>{`var b = a.match(/[a-z]\{3\}/g);`}</div>
                         <div>console.log(b); //["aaa", "bbb", "ccc", "ddd"]</div>
                     </code>
                     <code>
                         <div>test:判断字符串是否匹配正则表达式，返回布尔类型（true或false）</div>
                         <div>var a = "aaa bbb ccc ddd";</div>
-                        <div>var b = /^[a-z]{3}/.test(a);</div>
-                        <div>var c = /^[a-z]{4}/.test(a);</div>
+                        <div>{`var b = /^[a-z]\{3\}/.test(a);`}</div>
+                        <div>{`var c = /^[a-z]\{4\}/.test(a);`}</div>
                         <div>console.log(b);  //true a是以3个字母开头的，所以返回true</div>
-                        <div>console.log(c);  //false a是3哥字母开头，不是4字母开头，所以匹配4哥字母开头返回false</div>
+                        <div>console.log(c);  //false a是3个字母开头，不是4字母开头，所以匹配4哥字母开头返回false</div>
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>5.slice,substring,substr</div>
