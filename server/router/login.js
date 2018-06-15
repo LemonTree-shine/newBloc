@@ -8,8 +8,8 @@ const child = require('child_process');
 var router = express.Router();
 
 //链接数据库
-var db = mysql.createConnection({
-    host:"localhost",
+var db = mysql.createPool({
+    host:"127.0.0.1",
     user:"root",
     password:"123456",
     database:"bloc"
