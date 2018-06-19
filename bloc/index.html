@@ -19,6 +19,13 @@
 	</script>  
 	<script>
 		window.ENVPATH = /47\.105\.42\.195/.test(window.location)?"http://47.105.42.195:8081/":"http://localhost:8081/";
+		if(/47\.105\.42\.195/.test(window.location)){
+			window.ENVPATH = "http://47.105.42.195:8081/"
+		}else if(/xiaogangji\.com/.test(window.location)){
+			window.ENVPATH = "http://47.105.42.195:8081/"
+		}else{
+			window.ENVPATH = "http://localhost:8081/"
+		}
 	</script>
 	<script src="assets/ajax.js"></script>
 </head>

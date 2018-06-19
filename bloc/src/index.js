@@ -108,9 +108,6 @@ class IndexPage extends Component{
 				name:"数组方法",
 				link:"/jslist/array"
 			},{
-				name:"对象",
-				link:"/jslist/object"
-			},{
 				name:"js闭包",
 				link:"/jslist/closure"
 			},{
@@ -119,6 +116,9 @@ class IndexPage extends Component{
 			},{
 				name:"call,apply",
 				link:"/jslist/callApply"
+			},{
+				name:"js实现一个栈",
+				link:"/jslist/object"
 			}],
 		}
 	}
