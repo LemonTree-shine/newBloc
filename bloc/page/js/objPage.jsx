@@ -109,7 +109,7 @@ export default class ObjPage extends Component{
 
             console.log(stackString);
         }
-        devideby2(1000);
+        //devideby2(1000);
 
         //链表练习
         function LinkList(){
@@ -122,6 +122,7 @@ export default class ObjPage extends Component{
                 this.next = null;
             }
 
+            //链表的末尾插入一个数据
             this.append = function(element){
                 var node = new Node(element);
                 var current;
@@ -137,8 +138,45 @@ export default class ObjPage extends Component{
                 }
                 length++;
             }
+
+            //删除链表指定位置的值
+            this.remove = function(position){
+                var current = head;
+                var previous;
+                var index = 0;
+                if(position>-1&&position<length){
+                    //删除链表的第一个数据
+                    if(position===0){
+                        head = current.next;
+                    }else{
+                        while(index++<position){
+                            previous = current;
+                            current = current.next;
+                        }
+                        previous.next = current.next;
+
+                    }
+                    length--;
+                }else{
+                    return null;
+                }
+            }
+
+            //查看链表结构
+            this.print = function(){
+                console.log(head,length);
+            }
         }
 
         var linklist = new LinkList();
+        linklist.print();
+        linklist.append("first");
+        linklist.print();
+        linklist.append("second");
+        linklist.print();
+        linklist.append("third");
+        linklist.print();
+        linklist.remove(0);
+        linklist.print();
     }
 }
