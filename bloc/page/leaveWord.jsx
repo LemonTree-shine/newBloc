@@ -8,7 +8,7 @@ export default class LeaveWord extends Component{
     render(){
         return (<div className="leaveword">
             <div className="list-box">
-                {this.state.leaveList.map((value,index)=>{
+                {this.state.leaveList.slice((this.state.currentPage-1)*10,this.state.currentPage*10).map((value,index)=>{
                     return <div className="list clearfix" key={value.ID}>
                         <div className="head left">
                             <img src={`assets/head/${value.img}.jpg`} alt=""/>
@@ -21,6 +21,11 @@ export default class LeaveWord extends Component{
                     </div>
                 })}
             </div>
+            <div className="pagination">
+                {this.state.paginationList.length>1?this.state.paginationList.map((value,index)=>{
+                    return <div className={value.active?"page active":"page"} onClick={()=>{this.changePage(value,index)}} key={index}>{value.value}</div>
+                }):""}
+            </div>
             <div className="form-input clearfix">
                 <input id="leavewordname" type="text" placeholder="请填写你的姓名,姓名不填的话会当游客处理的哦"/>
                 <textarea id="leaveword" rows="8"></textarea>
@@ -31,7 +36,9 @@ export default class LeaveWord extends Component{
     constructor(props){
         super(props);
         this.state = {
-            leaveList:[]
+            leaveList:[],
+            paginationList:[],
+            currentPage:1
         }
     }
     componentDidMount(){
@@ -39,13 +46,45 @@ export default class LeaveWord extends Component{
             url:window.ENVPATH+"getLeaveWord",
             type:"post",
             success:(data)=>{
-                console.log(data.data);
+                //console.log(data.data);
+                var length = Math.ceil(data.data.length/10);
+                var pageArr = [];
+
+                for(let i=1;i<=length;i++){
+                    pageArr.push({
+                        value:i,
+                        active:false
+                    })
+                }
+                pageArr[0].active = true;
+                console.log(pageArr);
                 this.setState({
-                    leaveList:data.data
+                    leaveList:data.data,
+                    paginationList:pageArr
                 });
             }
         });
     }
+
+    changePage = (value,index)=>{
+        //console.log(value,index)
+        if(value.active){
+
+        }else{
+            this.state.paginationList.forEach((value,index2)=>{
+                if(value.active){
+                    this.state.paginationList[index2].active = false;
+                }
+            });
+            this.state.paginationList[index].active = true;
+            //console.log(this.state.paginationList);
+            this.setState({
+                paginationList:this.state.paginationList,
+                currentPage:Number(value.value)
+            });
+        }
+    }
+
     showDrop = (text)=>{
         var odiv = document.createElement("div");
         odiv.className = "allDrop";
