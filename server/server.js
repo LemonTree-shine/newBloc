@@ -178,26 +178,12 @@ process.on('uncaughtException', function (err) {
 //上传文件
 server.post("/upload",function(req,res){
 
-    console.log(process.platform);
-    var os = require('os');  
-    var IPv4,hostName;  
-    hostName=os.hostname();  
+    var IPv4;   
     if(process.platform == "darwin"){
-        for(var i=0;i<os.networkInterfaces().en0.length;i++){  
-            if(os.networkInterfaces().en0[i].family=='IPv4'){  
-                IPv4=os.networkInterfaces().en0[i].address;  
-            }  
-        }  
+        IPv4 = "http://127.0.0.1"
     }else if(process.platform == "linux"){
-        for(var i=0;i<os.networkInterfaces().eth0.length;i++){  
-            if(os.networkInterfaces().eth0[i].family=='IPv4'){  
-                IPv4=os.networkInterfaces().eth0[i].address;  
-            }  
-        } 
+        IPv4 = "http://47.105.42.195"
     }
-    
-    console.log('----------local IP: '+IPv4);  
-    console.log('----------local host: '+hostName); 
 
     var pathArr = [];
     const host = app.address().address
@@ -209,7 +195,7 @@ server.post("/upload",function(req,res){
         fs.rename(value.path,newPath,function(err){
             //res.send(newPath);
         })
-        pathArr.push("http://"+IPv4+":"+port+"/"+newPath);
+        pathArr.push(IPv4+":"+port+"/"+newPath);
     })
     res.send({
         code:0,
