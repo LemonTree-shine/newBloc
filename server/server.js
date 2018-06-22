@@ -46,7 +46,7 @@ server.use(function(req,res,next){
 });
 
 //启动服务器
-server.listen("8081",function(){
+var app = server.listen("8081","localhost",function(){
     console.log("启动了");
 });
 
@@ -169,3 +169,43 @@ process.on('uncaughtException', function (err) {
     console.error('系统异常了');
     console.error(err.stack);
 });
+
+
+/**
+ * node练习
+*/
+
+//上传文件
+server.post("/upload",function(req,res){
+
+ 
+var os = require('os');  
+var IPv4,hostName;  
+hostName=os.hostname();  
+for(var i=0;i<os.networkInterfaces().en0.length;i++){  
+    if(os.networkInterfaces().en0[i].family=='IPv4'){  
+        IPv4=os.networkInterfaces().en0[i].address;  
+    }  
+}  
+console.log('----------local IP: '+IPv4);  
+console.log('----------local host: '+hostName); 
+
+    var pathArr = [];
+    const host = app.address().address
+    const port = app.address().port
+
+
+    req.files.forEach((value,index)=>{
+        var newPath = "www/upload/"+value.filename.substring(0,5)+path.extname(value.originalname);
+        fs.rename(value.path,newPath,function(err){
+            //res.send(newPath);
+        })
+        pathArr.push("http://"+IPv4+":"+port+"/"+newPath);
+    })
+    res.send({
+        code:0,
+        msg:"上传成功",
+        path:pathArr
+    });
+      
+})

@@ -34,6 +34,11 @@ import Closure from "../page/js/closure";
 import Prototype from "../page/js/prototype";
 import CallApply from "../page/js/callApply";
 
+/**
+ * node练习
+*/
+
+import Node from "../page/node/node"
 
 
 
@@ -49,6 +54,7 @@ class IndexPage extends Component{
 					<Route path="/home/leaveWord" exact component={LeaveWord}></Route>
 					<Route path="/home/interview" exact component={Interview}></Route>
 					<Route path="/home/commonMethod" exact component={CommonMethod}></Route>
+					<Route path="/home/node" exact component={Node}></Route>
 				</IndexHead>)
 			}}></Route>
 			{/* css页面一级路由 */}
