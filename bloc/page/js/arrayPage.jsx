@@ -5,7 +5,7 @@ export default class ArrayPage extends Component {
         return (<div>
             <div className="content">
                 <div className="title">1.push,pop,shift,unshift</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         var arr = ["a","b","c"]<br />
                         console.log(arr.push("d")); //4  返回push以后数组的长度<br />
@@ -28,7 +28,7 @@ export default class ArrayPage extends Component {
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>2.sort,reverse,concat</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         var a = ["a","d","b","i","h","c"];<br />
                         console.log(a.sort()); //["a", "b", "c", "d", "h", "i"]  //数组排序<br />
@@ -48,7 +48,7 @@ export default class ArrayPage extends Component {
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>2.join,slice,splice</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         var a = ["a","b"];<br />
                         console.log(a.join("-"))    //a-b 把数组按照自定符号拼接字符串<br />
@@ -73,7 +73,7 @@ export default class ArrayPage extends Component {
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>3.indexOf,lastIndexOf</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         用法:array.indexOf(str),array.lastIndexOf(str);<br/>
                         若str在数组中存在，indexOf则返回第一个匹配的索引，lastIndexOf则返回最后一个匹配的索引<br/>
@@ -85,7 +85,7 @@ export default class ArrayPage extends Component {
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>4.forEach</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         {`用法:array.forEach((value,index)=>{/**处理数据*/})`}<br/>
                         var a = ["a","b","c"];<br/>
@@ -97,7 +97,7 @@ export default class ArrayPage extends Component {
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>5.map</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         {`用法:array.map((value,index)=>{/**处理数据*/});返回一个新的数组`}<br/>
 {`var a = ["a","b","c"];
@@ -109,7 +109,7 @@ console.log(a)  //["a", "b", "c"]   原数组没有改变`}
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>6.filter</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         {`用法:array.filter((value,index)=>{/**处理数据*/});返回一个满足条件的新数组`}<br/>
 {`var a = [1,2,3,4,5,6,7,8,9];
@@ -121,7 +121,7 @@ console.log(a); //[1, 2, 3, 4, 5, 6, 7, 8, 9]   原数组没有改变`}
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>7.every,some</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         {`用法:array.every((value,index)=>{/**处理数据*/});循环数组，数组中所有项都满足条件则返回true,否则返回false`}<br/>
                         {`      array.some((value,index)=>{/**处理数据*/});循环数组，数组中只要有一项满足条件则返回true,否则返回false`}<br/>
@@ -153,7 +153,7 @@ console.log(a)  //[1, 2, 3, 4, 5, 6, 7, 8, 9]  原数组没有改变`}
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>8.isArray:判断是否是数组类型</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         console.log(Array.isArray([]));  //true<br/>
                         console.log(Array.isArray({}));  //false<br/>
@@ -161,7 +161,7 @@ console.log(a)  //[1, 2, 3, 4, 5, 6, 7, 8, 9]  原数组没有改变`}
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>9.以下是es6数组方法:includes</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         用法:Array.includes(item); //数组中存在则返回true,不存在则返回false<br/>
                         var arr = ["a","b","c","d"];<br/>
@@ -170,7 +170,7 @@ console.log(a)  //[1, 2, 3, 4, 5, 6, 7, 8, 9]  原数组没有改变`}
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>10.find,findIndex</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         {`用法:Array.find((value)=>{...}); //返回满足条件的第一个值`}<br/>
                         {`用法:Array.findIndex((value)=>{...}); //返回满足条件的第一个值的索引`}<br/>
@@ -190,7 +190,7 @@ console.log(b);  //0  数组中小于4的第一个值是1，索引是0`}
         </div>)
     }
     componentDidMount() {
-        hljs.initHighlighting();
+        //hljs.initHighlighting();
 
         var arr = ["a","b","c","d"];
         for(let a of arr.keys()){

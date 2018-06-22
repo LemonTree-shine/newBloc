@@ -9,7 +9,7 @@ export default class Css3 extends Component{
             <div>
                 <div className="title">css文字渐变</div>
                 <div className="text-gradient">hello,LemonTree-Shine,welcome to my bloc!</div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
                     关键样式:<br/>
     {`.text-gradient{
@@ -28,6 +28,6 @@ export default class Css3 extends Component{
         </div>)
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
     }
 }

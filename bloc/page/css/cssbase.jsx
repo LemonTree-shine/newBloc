@@ -11,7 +11,7 @@ export default class CssBase extends Component{
                 <div className="title">css正圆小技巧</div>
                 <div className="circle-box"></div>
                 <div className="circle-box"></div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
                     {'.circle-box{width: 30%;padding-top: 30%;border-radius: 50%;background: #ccc;margin: 0 auto;}'}
                     </code>
@@ -33,7 +33,7 @@ export default class CssBase extends Component{
                     <div className="left-forword"></div>
                     <div className="tixing"></div>
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
                     第一个三角形的样式如下(动画就是三角形形成的过程):<br/>
 {`.left-top{
@@ -59,7 +59,7 @@ export default class CssBase extends Component{
                 <div className="box">
                     <div className="title">段落标题</div>
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
                     dom结构:<br/>
 {`<div class="box">
@@ -101,7 +101,7 @@ export default class CssBase extends Component{
                 <div className="box" style={{marginBottom:'20px'}}>
                     <div className="content"></div>
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
                     dom结构:<br/>
 {`<div className="box">
@@ -138,6 +138,6 @@ export default class CssBase extends Component{
 
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
     }
 }

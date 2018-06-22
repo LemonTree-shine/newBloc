@@ -12,7 +12,7 @@ export default class CallApply extends Component{
                 </div>
                 <br/>
                 <div className="title">call()方法使用示例:</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
 {`var name = "window";
 var obj = {
@@ -31,7 +31,7 @@ obj.sayName.call(window,"..."); //window...     this->window`}
                     上面代码输出结果可以看出：调用obj.sayName.call(window,"...")这句时，函数返回的是window下面的name；说明此时函数内部this是指向了window;<br/>
                     看一个实际使用call的案例(定义或者初始化一个对象):
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
 {`var obj1 = {};
 var obj2 = {
@@ -60,7 +60,7 @@ console.log(obj2);        //{name: "初始name", age: "初始age", adress: "初�
                     通过调用call方法，初始化了对象了原有属性，也对对象进行了扩展，在原型继承中也会用到call方法用于继承父类的属性和方法;<br/>
                     还有一种经常看到的call的用法：
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
 {`function A(a,b){
     /**
@@ -96,6 +96,6 @@ A(1,2);`}
         </div>)
     }
     componentDidMount(){
-        hljs.initHighlighting();
+        //hljs.initHighlighting();
     }
 }

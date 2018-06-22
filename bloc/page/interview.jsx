@@ -6,19 +6,19 @@ export default class Interview extends Component{
         return (<div className="interview">
             <div className="content">
                 <div className="title">1.js基本类型</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         String,Number,Boolean,Number,Null
                     </code>
                 </pre>
                 <div className="title">js引用类型</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         Object
                     </code>
                 </pre>
                 <div className="title">2.区分数据类型</div>
-                <pre>
+                <pre className="hljs"> 
             <code>      
     {
    `
@@ -62,7 +62,7 @@ console.log(Object.prototype.toString.call(g));  //[object Undefined]`}
             </code>
         </pre>
         <div className="title">3.变量提升</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
     {`
 var a = 100;
@@ -91,7 +91,7 @@ console.log(a);
     第三个打印出的是全局变量，所以是100；第四个打印出的是赋值过a=10之后的，所以是10；
         </div>
         <div className="title">4.数组去重</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
         {`
 传统方式:
@@ -114,7 +114,7 @@ console.log([...b]);  //[1, 2, 3, 4, 5]
             </code>
         </pre>
         <div className="title">去除字符串前后空格</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
         {`
 var a = "   asdasd   asdasdasd   ";
@@ -128,7 +128,7 @@ console.log(a.trim()); //asdasd   asdasdasd
             </code>
         </pre>
         <div className="title">首字母大写</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
         {`
 var a = "adsdsd sdsdAasd  AdffSDFas aa";
@@ -141,7 +141,7 @@ console.log(a.toLowerCase().replace(/^[a-zA-Z]|(\s+[a-zA-Z])/g,value=>{
             </code>
         </pre>
         <div  className="title">数字按照三位数分割</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
         {`
 var a = 12345678;
@@ -152,7 +152,7 @@ console.log(b);  //12,345,678
         `}
             </code>
         </pre>
-        <pre>
+        <pre className="hljs"> 
             <code>
     {`
 方式2:
@@ -167,7 +167,7 @@ console.log(a.replace(/\B(?=(\d{3})+(?!\d))/g,",")); //123,123,123,375,435,734,5
         </div>
 
         <div  className="title">setTimeout和promise优先级</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
                 {`
 setTimeout(function(){
@@ -190,7 +190,7 @@ console.log("c");
         </pre>
 
         <div  className="title">二分法数据查找</div>
-        <pre>
+        <pre className="hljs"> 
             <code>
 {`
 var a = [1, 2, 3,123,23,4,6,7,8,898,124,45645];
@@ -241,6 +241,6 @@ binarySearch(a,45645,0,a.length-1);   //找到了 45645 11
 
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
     }
 }

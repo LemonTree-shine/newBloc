@@ -13,7 +13,7 @@ export default class CommonMethod extends Component{
                     默认时间:当前时间
                 </div>
                 <br/>
-                <pre>
+                <pre className="hljs"> 
                     <code>
 {`function formatDate(time,formatter){
     var format
@@ -61,7 +61,7 @@ console.log(formatDate("2018-04-05","yyyy/MM/DD")) //2018/04/05
 
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
         
         function formatDate(time,formatter){
             var format

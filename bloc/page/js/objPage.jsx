@@ -3,7 +3,7 @@ import React,{Component,ReactDOM} from "react";
 export default class ObjPage extends Component{
     render(){
         return (<div>
-            <pre>
+            <pre className="hljs"> 
                 <code>
 {`function Stack(){
     var items = [];
@@ -45,7 +45,7 @@ export default class ObjPage extends Component{
         </div>)
     }
     componentDidMount(){
-        hljs.initHighlighting(); 
+        //hljs.initHighlighting(); 
 
 
         function Stack(){

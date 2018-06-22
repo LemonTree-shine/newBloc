@@ -83,6 +83,6 @@ export default class CssShow extends Component{
         </div>)
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
     }
 }

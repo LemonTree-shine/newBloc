@@ -16,7 +16,7 @@ export default class Closure extends Component{
                     闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
                     怎么来理解这句话呢？请看下面的代码。
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
 {`function a(){
     var a = 10;
@@ -31,7 +31,7 @@ aaa(); // 10`}
                 <div className="hljs">
                     从上面代码的运行结果可以看出，a函数在运行过后的变量在返回的结果中有用到的情况下，变量并没有销毁。为了能够更加了解闭包，请看下面的代码。
                 </div>
-                <pre>
+                <pre className="hljs"> 
                     <code className="hljs">
 {`function a(){
     var a = 0;
@@ -55,6 +55,6 @@ bbb(); // 2`}
         </div>)
     }
     componentDidMount(){
-        hljs.initHighlighting();  
+        //hljs.initHighlighting();  
     }
 }

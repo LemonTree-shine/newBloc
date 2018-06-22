@@ -5,7 +5,7 @@ export default class StringPage extends Component{
         return (<div>
             <div className="content">
                 <div className="title">1.toString,String</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>var str = 18;</div>
                         <div>console.log(typeof str.toString());  //string</div>
@@ -14,7 +14,7 @@ export default class StringPage extends Component{
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>2.split(和数组join对应)</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>用法:string.split(str,max);str表示分隔符，max表示分割出来的数组的最大长度</div>
                         <div>var str = "abcdefg";</div>
@@ -24,7 +24,7 @@ export default class StringPage extends Component{
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>3.replace</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>var a = "my name is lemon";</div>
                         <div>var b = a.replace("lemon","tom");</div>
@@ -43,7 +43,7 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>4.match,test</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>match:返回一个数组，内容是所有匹配的值；</div>
                         <div>var a = "aaa bbb ccc ddd";</div>
@@ -60,7 +60,7 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>5.slice,substring,substr</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>string.slice(firstIndex,endIndex); firstIndex和endIndex可以为负数</div>
                         <div>var a = "hello world";</div>
@@ -84,7 +84,7 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>6.toLowerCase,toUpperCase</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>var a = "Hello World";</div>
                         <div>var b = a.toLowerCase();</div>
@@ -95,7 +95,7 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
                     </code>
                 </pre>
                 <div className="title" style={{ marginTop: "20px" }}>7.trim</div>
-                <pre>
+                <pre className="hljs"> 
                     <code>
                         <div>var a = "   Hello World   ";</div>
                         <div>var b = a.trim();</div>
@@ -107,7 +107,7 @@ console.log(b); //"Aaa Bbb Ccc Ddd"
         </div>)
     }
     componentDidMount() {
-        hljs.initHighlighting();
+        //hljs.initHighlighting();
 
         var a = "   Hello World   ";
         var b = a.trim();
