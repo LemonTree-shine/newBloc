@@ -175,7 +175,7 @@ process.on('uncaughtException', function (err) {
  * node练习
 */
 
-//上传文件
+/*上传文件*/
 server.post("/upload",function(req,res){
 
     var IPv4;   

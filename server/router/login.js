@@ -146,7 +146,7 @@ router.use("/approval", function (req, res, next) {
     })
 });
 
-//部署接口
+/*部署接口*/
 router.use("/deploy",function(req,res,next){
     child.execFile('./start.sh',function (err, stdout, stderr) {
         //console.log(stdout);
