@@ -68,7 +68,8 @@ configs = {
 			loader: 'babel-loader',
 			exclude: /node_modules/,
 			query: {
-				presets: ['react','env','stage-0']
+				presets: ['react','env','stage-0'],
+				plugins: [['import', {"libraryName": "antd", "style": "css"}]]
 			}
 		}]
 	},
