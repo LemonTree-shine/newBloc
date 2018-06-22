@@ -46,7 +46,7 @@ server.use(function(req,res,next){
 });
 
 //启动服务器
-var app = server.listen("8081","localhost",function(){
+var app = server.listen("8081",function(){
     console.log("启动了");
 });
 
