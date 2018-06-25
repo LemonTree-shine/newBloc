@@ -1,11 +1,13 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { DatePicker } from 'antd';
+import { Button } from 'antd';
 
 export default class Node extends Component{
     render(){
         return <div>
             <DatePicker />
+            <Button type="primary" onClick={()=>{alert(123)}}>Primary</Button>
             <input ref={(input)=>{this.input = input}} type="file" name="f1"/>
             <button ref={(btn)=>{this.btn = btn}}>上传</button>
         </div>
@@ -32,5 +34,9 @@ export default class Node extends Component{
             xmlhttp.send(formdata);
 
         }
+
+        
+
+
     }
 }
