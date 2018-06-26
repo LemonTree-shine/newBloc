@@ -146,6 +146,20 @@ router.use("/approval", function (req, res, next) {
     })
 });
 
+//删除留言
+
+router.use("/delete", function (req, res, next) {
+    db.query(`DELETE FROM leaveword_db WHERE ID = '${JSON.parse(req.body).id}'`,(err,data)=>{
+        if(err)
+            console.log(err);
+        else
+            res.send({
+                data:"已通过"
+            });
+            //console.log();
+    })
+});
+
 /*部署接口*/
 router.use("/deploy",function(req,res,next){
     child.execFile('./start.sh',function (err, stdout, stderr) {

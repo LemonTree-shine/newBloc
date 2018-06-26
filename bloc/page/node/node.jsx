@@ -36,6 +36,8 @@ export default class Node extends Component{
     componentDidMount(){
         var data = [];
         var _this = this;
+
+        //input选择图片
         this.input.onchange = function(){
             //文件实例数组；
             data.push(this.files);
@@ -50,6 +52,8 @@ export default class Node extends Component{
             //每次上传都网容器中插入一张预览图片；
             _this.showBox.append(img);
         }
+
+        //图片上传
         this.btn.onclick = function(){
             var formdata = new FormData();
 

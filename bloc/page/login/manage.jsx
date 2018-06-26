@@ -22,7 +22,8 @@ export default class Manage extends Component{
                             <td>{value.leave_word}</td>
                             <td>{value.approval}</td>
                             <td>
-                            {value.approval=="0"?<a href="javascript:;" onClick={()=>{this.approval(value)}}>审批通过</a>:""}  
+                            {value.approval=="0"?<a href="javascript:;" onClick={()=>{this.approval(value)}}>审批通过</a>:""}
+                            &nbsp;&nbsp;<a href="javascript:;" onClick={()=>{this.delete(value)}}>删除</a>  
                             </td>
                         </tr>
                     })}
@@ -73,6 +74,17 @@ export default class Manage extends Component{
     approval=(value)=>{
         Ajax({
             url:window.ENVPATH+"manage/approval",
+            type:"post",
+            data:{id:value.ID},
+            success:(data)=>{
+                this.getList();
+            }
+        });
+    }
+
+    delete = (value)=>{
+        Ajax({
+            url:window.ENVPATH+"manage/delete",
             type:"post",
             data:{id:value.ID},
             success:(data)=>{
