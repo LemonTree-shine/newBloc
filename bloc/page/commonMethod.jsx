@@ -97,6 +97,12 @@ console.log(formatDate("2018-04-05","yyyy/MM/DD")) //2018/04/05
                 return timeEnum[value[0]]<10?"0"+timeEnum[value[0]]:timeEnum[value[0]]
             });
         }
-        console.log(formatDate("2018-04-05","yyyy/MM/DD"))
+        console.log(formatDate("2018-04-05","yyyy/MM/DD"));
+
+        var a = "123123345454541";
+
+        console.log(a.replace(/\B(?=(\d{3})+(?!\d{1}))/g,","));
+
+
     }
 }

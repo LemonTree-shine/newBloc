@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="http://47.105.42.195/assets/ajax.js"></script>
 </head>
 <body>
     asd
 </body>
+<script>
+    //console.log(Ajax)
+    Ajax({
+        url:"http://localhost:9999/index",
+        type:"post",
+        data:{name:"chenze",age:"25"},
+        success:(data)=>{
+            console.log(data);
+            document.body.innerHTML=data.path;
+        }
+    });
+</script>
 </html>

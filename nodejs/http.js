@@ -1,17 +1,34 @@
 var http = require("http");
 var url = require("url");
 var fs = require("fs");
+var events = require("events");
+var querystring = require('querystring');
 
 function main(){
     var server = http.createServer(function(req,res){
         //console.log(url.parse(req.url));
+        if(req.url=="/favicon.ico"){
+            return;
+        }
         if(req.url=="/demo.html"){
             renderHTML(req,res,req.url);
             return;
         }
 
-        var parts = url.parse(req.url).path.split("/");
-        console.log(parts)
+        var parts = url.parse(req.url).pathname.split("/");
+
+        //处理get请求方式
+        //console.log(querystring.parse(url.parse(req.url).query))
+
+        //处理post请求方式
+        var data = "";
+        req.on("data",function(result){
+            data+=result;
+        });
+        req.on("end",function(){
+            //data+=result;
+            console.log(JSON.parse(data))
+        })
 
         switch(parts[1]){
             case "index":
@@ -53,5 +70,3 @@ function renderHTML(req,res,path){
 }
 
 main();
-
-console.log(__dirname)
