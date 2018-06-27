@@ -18,11 +18,15 @@ let PLUGIN = [
 	new webpack.HotModuleReplacementPlugin(),
 	new webpack.NoEmitOnErrorsPlugin(),
 	new HtmlWebpackPlugin({
-		title: 'demo',
 		template: 'index.html', // 模板路径
-		filename:"index.html"
+		filename:"index.html",
+		hash:true,
+		excludeChunks:["common"]
 	}),
 	new CopyWebpackPlugin([{
+		from:__dirname + '/sdk',
+		to:__dirname+"/dist/sdk"
+	},{
 		from:__dirname + '/assets',
 		to:__dirname+"/dist/assets"
 	}])
@@ -41,10 +45,14 @@ if(process.env.NODE_ENV === "production"){
 }
 
 configs = {
-	entry:{index:['./src/index.js']},
+	entry:{
+		index:['./src/index.js'],
+		common:['./sdk/common.js'],
+			
+	},
 	output:{
 		path:__dirname+"/dist",
-		filename:"js/[name].[hash].js"
+		filename:"js/[name].js"
 	},
 	module:{
 		rules:[{

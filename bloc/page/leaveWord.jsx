@@ -2,7 +2,9 @@ import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
 import "../style/leaveword.less";
-import {formatDate} from "../tool/util.js"
+import {formatDate} from "../tool/util.js";
+
+import {configUrl} from "../sdk/common";
 
 export default class LeaveWord extends Component{
     render(){
@@ -42,6 +44,7 @@ export default class LeaveWord extends Component{
         }
     }
     componentDidMount(){
+        console.log(configUrl);
         Ajax({
             url:window.ENVPATH+"getLeaveWord",
             type:"post",
