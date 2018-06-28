@@ -37,7 +37,7 @@ export default class Index extends Component{
                     {this.state.list.map((value,index)=>{
                         return <div className="main-content-l-list" key={index}>
                             <div className="clearfix">
-                                <div className="list-l left">{value.type}</div>
+                                <div className={value.type=="css"?"list-l left css":"list-l left js"}>{value.type}</div>
                                 <div className="list-content left">
                                     <div className="title">{value.title}</div>
                                     <div className="content">{value.content}</div>

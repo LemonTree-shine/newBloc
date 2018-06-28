@@ -119,7 +119,7 @@ console.log([...b]);  //[1, 2, 3, 4, 5]
         {`
 var a = "   asdasd   asdasdasd   ";
 String.prototype.trim = function(){
-    return this.replace(/(^\s*)|(\s*$)/,value=>{
+    return this.replace(/(^\\s*)|(\\s*$)/,value=>{
         return ""
     })
 }
@@ -132,7 +132,7 @@ console.log(a.trim()); //asdasd   asdasdasd
             <code>
         {`
 var a = "adsdsd sdsdAasd  AdffSDFas aa";
-console.log(a.toLowerCase().replace(/^[a-zA-Z]|(\s+[a-zA-Z])/g,value=>{
+console.log(a.toLowerCase().replace(/^[a-zA-Z]|(\\s+[a-zA-Z])/g,value=>{
     return value.toUpperCase();
 }));   
 
@@ -145,7 +145,7 @@ console.log(a.toLowerCase().replace(/^[a-zA-Z]|(\s+[a-zA-Z])/g,value=>{
             <code>
         {`
 var a = 12345678;
-var b = a.toString().split("").reverse().join("").replace(/\d{3}/g,value=>{
+var b = a.toString().split("").reverse().join("").replace(/\\d{3}/g,value=>{
     return value+","
 }).split("").reverse().join("").replace(/^,/,"");
 console.log(b);  //12,345,678
@@ -157,13 +157,14 @@ console.log(b);  //12,345,678
     {`
 方式2:
 var a = "123123123375435734522";
-console.log(a.replace(/\B(?=(\d{3})+(?!\d))/g,",")); //123,123,123,375,435,734,522`}
+console.log(a.replace(/\\B(?=(\\d{3})+(?!\\d))/g,",")); //123,123,123,375,435,734,522`}
             </code>
         </pre>
         <div className="hljs">
-        正则说明：\B表示非单词边界，排除了首个会出现分隔符的情况；
-            ?=\d{3}+表示说匹配的空字符串后面必须三位数长度的倍数。3位数，6位数，9位数；
-            ?!\d表示匹配的后面不能出现单个数字，确保了三位数倍数的匹配
+        {`正则说明：\\B表示非单词边界，排除了首个会出现分隔符的情况；
+            ?=\\d{3}+表示说匹配的空字符串后面必须三位数长度的倍数。3位数，6位数，9位数；
+            ?!\\d表示匹配的后面不能出现单个数字，确保了三位数倍数的匹配`}
+        
         </div>
 
         <div  className="title">setTimeout和promise优先级</div>
