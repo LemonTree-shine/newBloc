@@ -80,7 +80,7 @@ export default class ArrayPage extends Component {
                         var a = ["a","b","c","d","e"];<br/>
                         console.log(a.indexOf("b"));   // 返回1<br/>
                         console.log(a.indexOf("h"));   // 返回-1<br/>
-                        console.log(a.lastIndexOf("b"));  // 返回2<br/>
+                        console.log(a.lastIndexOf("b"));  // 返回1<br/>
                         console.log(a.lastIndexOf("h"));  // 返回-1
                     </code>
                 </pre>

@@ -92,10 +92,37 @@ A(1,2);`}
                 <div style={{lineHeight:"25px",paddingTop:"8px",paddingBottom:"8px"}}>
                     上面这个经典的小案例也可以反应出用call方法可以使类似数组的结构去继承数组的一些方法，便于对数据的操作;
                 </div>
+                <div className="title">apply可以模拟一个数组传参</div>
+                <pre className="hljs">
+                    <code>
+{`var numarr = [10,20]
+function demo(a,b){
+    return a+b;
+}
+假设现在需要把numarr中的每一项当作参数传给demo。
+
+传统实现方式：
+demo(numarr[0],numarr[1]);
+
+apply实现方式：
+demo.apply(null,numarr)；
+
+es6实现方式：
+demo(...numarr)
+`}
+                    </code>
+                </pre>
             </div>
         </div>)
     }
     componentDidMount(){
         //hljs.initHighlighting();
+        // var numarr = [10,20]
+        // function demo(a,b){
+        //     return a+b;
+        // }
+        // console.log(demo.apply(null,numarr));
+
+
     }
 }

@@ -229,3 +229,86 @@ export function numToText(num,type){
     }
     
 }
+
+/**
+ * 密码强度验证
+ * @param {String} str
+*/
+export function CharMode(str) {
+    const level = {
+        "danger": "危险",
+        "low": "低",
+        "mid": "中",
+        "high": "高"
+    }
+
+    /**
+     * 全是数字的密码
+    */
+    if (/^\d+$/.test(str)) {
+        return level.danger
+    }
+
+    /**
+      * 全是小写或全是大写字母的密码
+     */
+    if (/^[a-z]+$/.test(str) || /^[A-Z]+$/.test(str)) {
+        return level.danger
+    }
+
+    /**
+     * 只有大写字母和小写字母
+    */
+    if (/^(?=.*[a-z])(?=.*[A-Z])(?!.*[0-9])(?!.*[^0-9a-zA-Z])/.test(str)) {
+        return level.low
+    }
+
+    /**
+     * 全是数字+特殊字符
+    */
+    if (/^(?=.*[0-9])(?=.*[^0-9a-zA-Z])(?!.*[a-zA-Z])/.test(str)) {
+        return level.low
+    }
+
+    /**
+     * 全是大写或者小写+特殊字符
+    */
+    if (/^((?=.*[a-z])(?!.*[0-9])(?!.*[A-Z])|(?=.*[A-Z])(?!.*[0-9])(?!.*[a-z]))(?=.*[^a-zA-Z0-9])/.test(str)) {
+        return level.low
+    }
+
+    /**
+     * 包含数字和大小写字母中的一种，不包含特殊字符
+    */
+    if (/^((?=.*[0-9])(?=.*[a-z])(?!.*[A-Z])|(?=.*[0-9])(?=.*[A-Z])(?!.*[a-z]))(?!.*[^a-zA-Z0-9])/.test(str)) {
+        return level.low;
+    }
+
+    /**
+      * 大写+小写+特殊字符
+     */
+    if (/^(?=.*[A-Z])(?=.*[a-z])(?!.*[0-9])(?=.*[^a-zA-Z0-9])/.test(str)) {
+        return level.mid;
+    }
+
+    /**
+     * 包含数字大小写中的一种，还有特殊字符
+    */
+    if (/^((?=.*[0-9])(?=.*[a-z])(?!.*[A-Z])|(?=.*[0-9])(?=.*[A-Z])(?!.*[a-z]))(?=.*[^a-zA-Z0-9])/.test(str)) {
+        return level.mid;
+    }
+
+    /**
+     * 包含数字和大小写字符，不包含特殊字符
+    */
+    if (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.*[^0-9a-zA-Z])/.test(str)) {
+        return level.mid;
+    }
+
+    /**
+     * 包含字母数字，字母大小写，还有特殊字符
+    */
+    if (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])/.test(str)) {
+        return level.high;
+    }
+}
