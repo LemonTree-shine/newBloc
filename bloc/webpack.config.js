@@ -77,7 +77,18 @@ configs = {
 			exclude: /node_modules/,
 			query: {
 				presets: ['react','env','stage-0'],
-				plugins: [['import', {"libraryName": "antd", "style": "css"}]]
+				plugins: [
+					['import', {"libraryName": "antd", "style": "css"}],
+					[
+						"transform-runtime",
+						{
+						  "helpers": false,
+						  "polyfill": false,
+						  "regenerator": true,
+						  "moduleName": "babel-runtime"
+						}
+					  ]
+				]
 			}
 		}]
 	},

@@ -10,6 +10,7 @@ export default class Nav extends Component{
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/home/index">首页</NavLink></li>
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/csslist">css</NavLink></li>
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/jslist">js</NavLink></li>
+                <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/reactlist">react</NavLink></li>
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/home/commonMethod">常用方法</NavLink></li>
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/home/interview">面试专用</NavLink></li>
                 <li className="head-menu-item"><NavLink className="title" activeClassName="active" to="/home/leaveWord">留言</NavLink></li>

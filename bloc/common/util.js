@@ -312,3 +312,65 @@ export function CharMode(str) {
         return level.high;
     }
 }
+
+/**
+ * 冒泡排序
+ * @param {Array} arr 
+ * 定义：每次循环都把选出最大的值放大最后一位,每次碰到前一位比后一位大的，就要交换位置
+ * 稳定度：稳定
+ * 时间复杂度：N^2
+*/
+
+export function bubbleSort(arr){
+    for(let i = 0;i<arr.length-1;i++){
+        for(let j = 0;j<arr.length-1-i;j++){
+            if(arr[j]>arr[j+1]){
+                var a = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = a;
+            }
+        }
+    }
+}
+
+/**
+ * 选择排序
+ * @param {Array} arr 
+ * 定义：每次循环找出最小值的索引，第一次循环结束，交换第一位与最小索引的位置，循环直到排序结束
+ * 稳定度：不稳定(存在相同值的情况下，位置会换掉)
+ * 时间复杂度：N^2
+*/
+
+export function selectSort(arr){
+    for(let i=0;i<arr.length;i++){
+        var minIndex = i;
+        for(let j = i;j<arr.length;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex = j;
+            }
+        }
+
+        var min = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = min;
+    }
+}
+
+/**
+ * 插入排序
+ * @param {Array} arr 
+ * 定义：每次拿已经排序好的后面一个值，倒叙和前面已经排序好的数组对比，只要碰到已经排序好的值比压迫插入的值大，就往后移动一位，一直到碰到比要插入的值小或等于位置
+ * 稳定度：稳定
+ * 时间复杂度：N^2
+*/
+
+export function insertSort(arr){
+    for(let i=1;i<arr.length;i++){
+        var temp = arr[i]; //记录当前的值
+        for(var p = i-1;p>=0&&arr[p]>temp;p--){
+            arr[p+1]=arr[p];
+            count++
+        }
+        arr[p+1] = temp;
+    }
+}

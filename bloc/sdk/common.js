@@ -1,6 +1,6 @@
 import * as ENV from "./env.js";
 
-console.log(ENV);
+//console.log(ENV);
 
 /**
  * dev:开发环境

@@ -35,10 +35,23 @@ import Prototype from "../page/js/prototype";
 import CallApply from "../page/js/callApply";
 
 /**
+ * react页面
+*/
+import ReactBase from "../page/react/base";
+import ReactProps from "../page/react/props";
+
+/**
  * node练习
 */
 
-import Node from "../page/node/node"
+import Node from "../page/node/node";
+
+
+/**
+ * es6练习
+*/
+
+import Es6 from "../page/es6/es6";
 
 
 
@@ -55,6 +68,7 @@ class IndexPage extends Component{
 					<Route path="/home/interview" exact component={Interview}></Route>
 					<Route path="/home/commonMethod" exact component={CommonMethod}></Route>
 					<Route path="/home/node" exact component={Node}></Route>
+					<Route path="/home/es6" exact component={Es6}></Route>
 				</IndexHead>)
 			}}></Route>
 			{/* css页面一级路由 */}
@@ -82,6 +96,17 @@ class IndexPage extends Component{
 						<Route path="/jslist/closure" component={Closure}></Route>
 						<Route path="/jslist/prototype" component={Prototype}></Route>
 						<Route path="/jslist/callApply"  component={CallApply}></Route>
+					</ListCommon>
+				}}></Route>
+			</Switch>
+			{/*react页面一级路由*/}
+			<Switch>
+				<Redirect from="/reactlist" exact to="/reactlist/base" />
+				<Route path="/reactlist"  render={()=>{
+					return <ListCommon menu={this.state.reactmenu}>
+						{/* 二级路由 */}
+						<Route path="/reactlist/base" component={ReactBase}></Route>
+						<Route path="/reactlist/props" component={ReactProps}></Route>
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -126,6 +151,14 @@ class IndexPage extends Component{
 				name:"js实现一个栈",
 				link:"/jslist/object"
 			}],
+			//react页面菜单
+			reactmenu:[{
+				name:"基本用法",
+				link:"/reactlist/base"
+			},{
+				name:"传值模式",
+				link:"/reactlist/props"
+			}]
 		}
 	}
 }
