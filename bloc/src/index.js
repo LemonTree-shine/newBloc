@@ -67,7 +67,6 @@ class IndexPage extends Component{
 					<Route path="/home/leaveWord" exact component={LeaveWord}></Route>
 					<Route path="/home/interview" exact component={Interview}></Route>
 					<Route path="/home/commonMethod" exact component={CommonMethod}></Route>
-					<Route path="/home/node" exact component={Node}></Route>
 					<Route path="/home/es6" exact component={Es6}></Route>
 				</IndexHead>)
 			}}></Route>
@@ -96,6 +95,7 @@ class IndexPage extends Component{
 						<Route path="/jslist/closure" component={Closure}></Route>
 						<Route path="/jslist/prototype" component={Prototype}></Route>
 						<Route path="/jslist/callApply"  component={CallApply}></Route>
+						<Route path="/jslist/node" exact component={Node}></Route>
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -150,6 +150,9 @@ class IndexPage extends Component{
 			},{
 				name:"js实现一个栈",
 				link:"/jslist/object"
+			},{
+				name:"图片上传案例",
+				link:"/jslist/node"
 			}],
 			//react页面菜单
 			reactmenu:[{

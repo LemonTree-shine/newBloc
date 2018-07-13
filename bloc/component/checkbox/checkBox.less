@@ -1,0 +1,50 @@
+@keyframes activeShow{
+    from {
+        border-color:#b5b3b3;
+        background: #ffffff
+    }
+    to {
+        border-color:#3b98fc;
+        background:  #3b98fc ;
+    }
+}
+
+.c-checkBox{
+    width: 15px;
+    height: 15px;
+    position: relative;
+    border: .5px solid #b5b3b3;
+    border-radius: 3px;
+    background: #ffffff;
+    .c-checkBox-input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+}
+.c-checkBox-input-active{
+   border-color:#3b98fc;
+   background:  #3b98fc ;
+   animation:activeShow .2s forwards;
+   &:after{
+       content: "";
+       position: absolute;
+       top: 2px;
+       left: 2px;
+       width: 8px;
+       height: 4px;
+       border-left: 2px solid #ffffff;
+       border-bottom: 2px solid #ffffff;
+       transform: rotate(-45deg);
+       cursor: pointer;
+       border-radius: 1px;
+   }   
+}
+
+//.5px solid #3b98fc

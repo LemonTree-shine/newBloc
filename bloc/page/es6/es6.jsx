@@ -24,13 +24,19 @@ function:在执行的时候定义this；
             </pre>
             <pre className="hljs">
                 <code>
-                    set结构：
-                    var set = new Set();
-                    set数据类型包括add,delete,has,keys,values,entries等方法,for...of循环
+{`set结构：
+var set = new Set();
+set数据类型包括add,delete,has,keys,values,entries等方法,for...of循环
 
-                    map结构：
-                    var map = new Map();
-                    map数据类型包括add,delete,has,keys,values,entries等方法,for...of循环
+map结构：
+var map = new Map();
+map数据类型包括add,delete,has,keys,values,entries等方法,for...of循环
+
+class:
+静态方法和静态变量用static表示，静态属性不能用实例访问，静态属性会被继承；
+继承类中用super表示父类的构造函数；
+super()只能在子类的constructor中调用；
+super()返回的是子类的实例（super()相当于A.prototype.constructor.call(this)）;`}           
                 </code>
             </pre>
         </div>
@@ -142,29 +148,54 @@ function:在执行的时候定义this；
         //     console.log(generator.next())
         //   }, 2000);
 
-        function read(str){
-            return new Promise(function(resolve,reject){
-                setTimeout(() => {
-                    resolve(str);
-                }, 2000);
-            });
-        }
+        // function a(){
+        //     return new Promise(function(resolve,reject){
+        //         setTimeout(function(){
+        //             resolve("aaa")
+        //         },2000)
+        //     });
+        // }
 
-        async function asyncRead(str){
-            var str1 = await read(str);
-            return str1;
-        }
-        //console.log(asyncRead("asdasd"));
+        // async function b(){
+        //     //console.log(await a());
+        //     //console.log(await a());
+        //     var aa = await a();
+        //     var bb = await a();
+        //     console.log(aa+bb)
+        //     debugger;
+        //     return bb
 
+        // }
 
-        function sum(num){
-            if(num ==1){
-                return num;
+        // console.log(b())
+
+        class A{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
             }
-            return num+sum(--num)
+            toString(){
+                return this.x+","+this.y
+            }
         }
-        console.log(sum(5))
 
+        class B extends A{
+            // constructor(){
+            //     super(1,2);
+                
+            // }
+            toString(){
+                return super.toString()+"bbbbb";
+            }
+            name(){
+                alert(123);
+            }
+        }
+
+        var b = new B();
+        b.x = 123;
+        b.y = "asd";
+        console.log(b.toString());
     } 
 }
 

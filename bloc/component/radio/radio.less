@@ -1,0 +1,41 @@
+.c-radioBox{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    .c-radio{
+        position: absolute;
+        top:0;
+        left: 0;
+        z-index: 1000;
+        opacity: 0;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+    }
+    .c-radioCss{
+        background: white;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        box-sizing: border-box;
+        &:after{
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            display: block;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+        }
+    }
+    .c-radioCss-active{
+        background: #ffffff;
+        border-color:#6bcbf9;
+        &:after{
+            background: #6bcbf9;
+        }
+    }
+}

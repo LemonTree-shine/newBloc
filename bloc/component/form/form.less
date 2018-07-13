@@ -1,0 +1,49 @@
+.c-input{
+    border: 1px solid #ccc;
+    outline: none;
+    display: inline-block;
+    width: 150px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 8px;
+    box-sizing: border-box;
+}
+.c-error{
+    border:1px solid red !important;
+}
+.c-error:after{
+    content: "asdasd";
+    display: block;
+}
+
+.c-textBox{
+    display: inline-block;
+    position: relative;
+}
+
+.error-tooltips{
+    position: absolute;
+    font-size: 10px;
+    background: #292727;
+    color: #ffffff;
+    line-height: 22px;
+    padding: 0 8px;
+    border-radius: 4px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-29px);
+    white-space:nowrap;
+    z-index: 999;
+}
+.error-tooltips:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #292727;
+    top: 100;
+    left: 50%;
+    transform: translate(-50%,-4px) rotate(-45deg);
+}
+
