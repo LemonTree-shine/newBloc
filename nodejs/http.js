@@ -14,7 +14,8 @@ function main(){
             renderHTML(req,res,req.url);
             return;
         }
-
+        console.log(req.method)
+        //处理url
         var parts = url.parse(req.url).pathname.split("/");
 
         //处理get请求方式
@@ -30,6 +31,7 @@ function main(){
             console.log(JSON.parse(data))
         })
 
+        //区分路由地址
         switch(parts[1]){
             case "index":
                 renderJSON(req,res,{path:"index"});
@@ -44,6 +46,7 @@ function main(){
     })
 }
 
+//返回一个json
 function renderJSON(req,res,data){
     res.writeHead(200, {
         'Content-Type': "application/json",
@@ -53,6 +56,7 @@ function renderJSON(req,res,data){
     res.end(JSON.stringify(data))
 }
 
+//返回一个错误信息
 function renderERROR(req,res){
     res.writeHead(200, {
         'Content-Type': "application/json",
