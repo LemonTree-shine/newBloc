@@ -169,33 +169,75 @@ super()返回的是子类的实例（super()相当于A.prototype.constructor.cal
 
         // console.log(b())
 
-        class A{
-            constructor(x,y){
-                this.x = x;
-                this.y = y;
-            }
-            toString(){
-                return this.x+","+this.y
-            }
-        }
+        // class A{
+        //     constructor(x,y){
+        //         this.x = x;
+        //         this.y = y;
+        //     }
+        //     toString(){
+        //         return this.x+","+this.y
+        //     }
+        // }
 
-        class B extends A{
-            // constructor(){
-            //     super(1,2);
+        // class B extends A{
+        //     // constructor(){
+        //     //     super(1,2);
                 
-            // }
-            toString(){
-                return super.toString()+"bbbbb";
-            }
-            name(){
-                alert(123);
+        //     // }
+        //     toString(){
+        //         return super.toString()+"bbbbb";
+        //     }
+        //     name(){
+        //         alert(123);
+        //     }
+        // }
+
+        // var b = new B();
+        // b.x = 123;
+        // b.y = "asd";
+        // console.log(b.toString());
+        // var a = {
+        //     name:"chenze",
+        //     age:12
+        // };
+        // var b = ["a","b","c"]
+        // for(let i of Object.values(b)){
+        //     console.log(i)
+        // }
+        // var a = {name:"chenze"};
+        // console.log(a.hasOwnProperty("name"));
+        // delete a.name
+        // console.log(a.hasOwnProperty("name"));
+        var arr = [4,6,78,65,43,3,44];
+
+        function mergeSort(arr){
+            if(arr.length<=1){
+                return arr;
+            }else{
+                var mid = Math.floor((0+arr.length)/2);
+                var leftPart = arr.slice(0,mid);
+                var rightPart = arr.slice(mid);
+                return merge(mergeSort(leftPart),mergeSort(rightPart));
             }
         }
 
-        var b = new B();
-        b.x = 123;
-        b.y = "asd";
-        console.log(b.toString());
+        function merge(a,b){
+            var x = 0;
+            var y = 0;
+            var mergeArr = [];
+            while(x<a.length&&y<b.length){
+                if(a[x]<b[y]){
+                    mergeArr.push(a[x]);
+                    x++;
+                }else{
+                    mergeArr.push(b[y]);
+                    y++;
+                }
+            }
+            return [...mergeArr,...a.slice(x),...b.slice(y)]
+        }
+       // merge(a,b);
+        console.log(mergeSort(arr))
     } 
 }
 

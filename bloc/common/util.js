@@ -374,3 +374,36 @@ export function insertSort(arr){
         arr[p+1] = temp;
     }
 }
+
+/**
+ * 归并排序
+ * @param {Array} arr 
+ * 一直拆分一直拆分，直到数组只剩下一个，不能拆分为止，然后合并
+ * 采用递归方式；
+*/
+function mergeSort(arr){
+    if(arr.length<=1){
+        return arr;
+    }else{
+        var mid = Math.floor((0+arr.length)/2);
+        var leftPart = arr.slice(0,mid);
+        var rightPart = arr.slice(mid);
+        return merge(mergeSort(leftPart),mergeSort(rightPart));
+    }
+}
+
+function merge(a,b){
+    var x = 0;
+    var y = 0;
+    var mergeArr = [];
+    while(x<a.length&&y<b.length){
+        if(a[x]<b[y]){
+            mergeArr.push(a[x]);
+            x++;
+        }else{
+            mergeArr.push(b[y]);
+            y++;
+        }
+    }
+    return [...mergeArr,...a.slice(x),...b.slice(y)]
+}
