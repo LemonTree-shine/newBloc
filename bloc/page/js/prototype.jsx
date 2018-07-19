@@ -1,4 +1,5 @@
 import React,{Component,ReactDOM} from "react";
+import Prism from 'prismjs';
 
 export default class Prototype extends Component{
     render(){
@@ -6,7 +7,7 @@ export default class Prototype extends Component{
             <div className="content">
                 <div className="title">创建对象</div>
                 <pre  className="hljs">
-                    <code>
+                    <code className="lang-css">
 {`新建一个对象，然后赋值；
 var box = new Object();   //创建一个 Object对象
 box.name = 'Chen';//创建一个 name属性并赋值
@@ -22,7 +23,7 @@ console.log(box.run());//Chen100运行中...`}
                     为了解决多个类似对象声明的问题，就出现了一种叫做工厂模式的方法，这种方法就是为了解决实例化对象产生大量重复的问题。请看下面代码：
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`function createObject(name, age) { //集中实例化的函数
     var obj = new Object();
     obj.name = name;
@@ -42,7 +43,7 @@ alert(box2.run());   //Jack200运行中...`}
                     通过工厂模式，可以轻松的解决重复实例化的问题；但是，存在一个识别问题；看下面代码：
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`console.log(typeof box1);           //Object
 console.log(box1 instanceof Object);//true
 console.log(typeof box2);           //Object
@@ -54,7 +55,7 @@ console.log(box2 instanceof Object);//true`}
                     从结果中可以看出，box1和box2都是继承object，但是根本没法看出到底属于哪个实例；这个时候出现了构造函数;这种方式，需要用new去一个对象,看如下代码:
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`function Box(name,age){//构造函数模式(构造函数首字母大写)
 this.name = name;
 this.age = age;
@@ -74,7 +75,7 @@ console.log(box1 instanceof Box); //true; `}
                     思考：构造函数中并没有return，那为什么new一下构造函数，能创建一个对象？new的过程中，构造函数内部做了哪些工作，请看以下代码:   
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`function Box(){
 this.name = "Tom";
     console.log(this);
@@ -87,7 +88,7 @@ new Box();//Box {name:"Tom"}对象`}
                     其实，构造函数在new实例化的时候做了4件事情，看以下代码：
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`var obj  ={};//首先会创建一个新的对象
 obj.__proto__ = Box.prototype;  //然后把构造函数的prototype挂在到空对象的__proto__上(这里不做深入讲解)；
 Box.call(obj);  //然后把this指向从window变到obj，并且赋值
@@ -99,7 +100,7 @@ return obj;  //最后return回来这个对象`}
                     在了解构造函数以后，来看一下prototype(原型)是怎么一回事；先来看一段代码：                
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`function Box(name,age){
     this.name = name;
     this.age = age;
@@ -129,5 +130,6 @@ Box.prototype.constructor == Box //true
 
     componentDidMount(){
         //hljs.initHighlighting();
+        Prism.highlightAll();
     }
 }

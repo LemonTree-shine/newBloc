@@ -1,6 +1,7 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
+import Prism from 'prismjs';
 import "./style/css.less";
 
 export default class CssBase extends Component{
@@ -12,7 +13,7 @@ export default class CssBase extends Component{
                 <div className="circle-box"></div>
                 <div className="circle-box"></div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
                     {'.circle-box{width: 30%;padding-top: 30%;border-radius: 50%;background: #ccc;margin: 0 auto;}'}
                     </code>
                 </pre>
@@ -34,7 +35,7 @@ export default class CssBase extends Component{
                     <div className="tixing"></div>
                 </div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
                     第一个三角形的样式如下(动画就是三角形形成的过程):<br/>
 {`.left-top{
     height: 0;
@@ -60,7 +61,7 @@ export default class CssBase extends Component{
                     <div className="title">段落标题</div>
                 </div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
                     dom结构:<br/>
 {`<div class="box">
     <div class="title">段落标题</div>
@@ -102,7 +103,7 @@ export default class CssBase extends Component{
                     <div className="content"></div>
                 </div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
                     dom结构:<br/>
 {`<div className="box">
     <div className="content"></div>
@@ -139,5 +140,6 @@ export default class CssBase extends Component{
     }
     componentDidMount(){
         //hljs.initHighlighting();  
+        Prism.highlightAll();
     }
 }

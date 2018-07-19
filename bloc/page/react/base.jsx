@@ -1,12 +1,13 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
+import Prism from 'prismjs';
 
 export default class ReactBase extends Component{
     render(){
         return <div>
             <div className="title">使用前准备(这里只讲es6中react的使用)</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
                    npm,node,webpack,react,react-dom 
                 </code>
             </pre>
@@ -14,7 +15,7 @@ export default class ReactBase extends Component{
             <div className="sub-title fw700">1.html页面格式</div>
             <div className="sub-title">入口页面，contain将作为整个项目的容器</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {
 `<!DOCTYPE html>
 <html>
@@ -32,7 +33,7 @@ export default class ReactBase extends Component{
             </pre>
             <div className="sub-title fw700 mt15">2.入口js</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {
 `index.js
 
@@ -54,7 +55,7 @@ document.getElementById('contain')就是入口html中的容器;
             </pre>
             <div className="sub-title fw700 mt15">3.组件component</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`import React,{Component,ReactDOM} from "react";   //react必须引入的库，没有为什么
 import reactDOM,{render} from "react-dom";        //react必须引入的库，没有为什么
 
@@ -73,14 +74,14 @@ export default class Index extends Component{
             <div className="sub-title fw700 mt15">4.props传参</div>
             <div className="sub-title mt10">假设在已经有一个Index组件的情况下。</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`<Index text = 'hello world'/>
 通过上述方式调用，就可以在Index中通过this.props.text获取到hello world。`}
                 </code>
             </pre>
             <div className="sub-title fw700 mt15">5.state和setState</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`有如下一个Index组件
 export default class Index extends Component{
     render(){
@@ -119,7 +120,7 @@ export default class Index extends Component{
             </div>
             <div className="sub-title fw700 mt15">如下有一个index组件测试生命周期的执行顺序</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`export default class Index extends Component{
     render(){
         return <div>生命周期测试</div>
@@ -156,7 +157,7 @@ export default class Index extends Component{
             <div className="sub-title fw700 mt15">7.渲染一个数组</div>
             <div className="sub-title fw700">通过map方法处理数据，返回一个dom;用index组件举个🌰</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`export default class Index extends Component{
     render(){
         return <div>{this.state.list.map((value,index)=>{
@@ -184,7 +185,7 @@ export default class Index extends Component{
             <div className="sub-title">2: ref为一个回调函数；定义<span className="green">{`ref = {el => this.refa = el}`}</span>,然后通过this.refa就可以获取到这个dom或者这个组件，推荐使用这种方式。</div>
             <div className="sub-title">看下面代码：</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`export default class Index extends Component{
     render(){
         return <div ref={ el => this.odiv = el}>hello world</div>
@@ -207,6 +208,7 @@ export default class Index extends Component{
         super(props);
     }
     componentDidMount(){
+        Prism.highlightAll();
         console.log(this.odiv);
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component, ReactDOM } from "react";
 import reactDOM, { render } from "react-dom";
 //import Paginator from "../../component/paginator/paginator.jsx";
+import Prism from 'prismjs';
 
 import { Button, CheckBox, CheckBoxGroup, Dlog, Form, Input, Paginator, Radio, GroupRadio, Toast } from "../../component/common.js";
 
@@ -9,14 +10,14 @@ export default class ReactProps extends Component {
         return <div>
             <div className="title">父传子</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
                     {`<component message="hello world"/>`}
                 </code>
             </pre>
             <div className="sub-title mt10">component为一个组件，在组件中通过this.props.message可以拿到父组件传递的数据。</div>
             <div className="title">子传父</div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`有个组件A:
 class A extends Component{
     render(){
@@ -36,6 +37,7 @@ class A extends Component{
             </pre>
             <div className="title mt15">同级组件传值</div>
             <pre className="hljs"> 
+                <code className="lang-css">
 {`模拟一个场景：有一个Index组件，内部用了A,B两个组件，在A,B两个之间传递数据；
 组件Index:
 class Index extends Component{
@@ -83,6 +85,7 @@ class B extends Component{
     }
 }
 `}
+                </code>
             </pre>
             <div className="sub-title mt10">上面三个组件中，父组件：Index，子组件：A,B;</div>
             <div className="sub-title mt10">先看A组件:<span className="blue">{`<A message={this.state.message}/>`}</span>把Index组件中的state的值当做参数传给A组件</div>
@@ -103,7 +106,7 @@ class B extends Component{
         }
     }
     componentDidMount() {
-        
+        Prism.highlightAll();
     }
 
     getData = (message)=>{

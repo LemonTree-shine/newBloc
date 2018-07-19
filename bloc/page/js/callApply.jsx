@@ -1,4 +1,5 @@
 import React,{Component,ReactDOM} from "react";
+import Prism from 'prismjs';
 
 export default class CallApply extends Component{
     render(){
@@ -13,7 +14,7 @@ export default class CallApply extends Component{
                 <br/>
                 <div className="title">call()方法使用示例:</div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`var name = "window";
 var obj = {
     name:"this obj",
@@ -32,7 +33,7 @@ obj.sayName.call(window,"..."); //window...     this->window`}
                     看一个实际使用call的案例(定义或者初始化一个对象):
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`var obj1 = {};
 var obj2 = {
     name:"tom",
@@ -61,7 +62,7 @@ console.log(obj2);        //{name: "初始name", age: "初始age", adress: "初�
                     还有一种经常看到的call的用法：
                 </div>
                 <pre className="hljs"> 
-                    <code>
+                    <code className="lang-css">
 {`function A(a,b){
     /**
         arguments.forEach(value => {      直接用arguments.forEach会报错(arguments.forEach is not a function)
@@ -94,7 +95,7 @@ A(1,2);`}
                 </div>
                 <div className="title">apply可以模拟一个数组传参</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
 {`var numarr = [10,20]
 function demo(a,b){
     return a+b;
@@ -122,7 +123,7 @@ demo(...numarr)
         //     return a+b;
         // }
         // console.log(demo.apply(null,numarr));
-
+        Prism.highlightAll();
 
     }
 }

@@ -1,6 +1,7 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
+import Prism from 'prismjs';
 import "./style/css.less";
 
 export default class Css3 extends Component{
@@ -10,7 +11,7 @@ export default class Css3 extends Component{
                 <div className="title">css文字渐变</div>
                 <div className="text-gradient">hello,LemonTree-Shine,welcome to my bloc!</div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
                     关键样式:<br/>
     {`.text-gradient{
         background: linear-gradient(to right, #ea31d4, #e4a85d);
@@ -29,5 +30,6 @@ export default class Css3 extends Component{
     }
     componentDidMount(){
         //hljs.initHighlighting();  
+        Prism.highlightAll();
     }
 }

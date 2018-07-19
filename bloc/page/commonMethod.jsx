@@ -1,7 +1,8 @@
 import React, { Component, ReactDOM } from "react";
 import "../style/interview.less";
+import Prism from 'prismjs';
 
-import { formatDate, numberSplit, splitFour, changeNumStyle, numToText ,CharMode} from "../common/util.js"
+import { formatDate, numberSplit, splitFour, changeNumStyle, numToText, CharMode } from "../common/util.js"
 
 export default class CommonMethod extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class CommonMethod extends Component {
             <div className="content">
                 <div className="title">时间格式化</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
                         {`/**
  * @param {Date|String} time  new Date()或者毫秒字符串
  * @param {String} formatter  "yyyy-MM-DD HH:mm:ss"
@@ -50,7 +51,7 @@ console.log(formatDate("2018-04-05","yyyy/MM/DD")) //2018/04/05
                 </pre>
                 <div className="title">去除前后空格</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
                         {`//去除前后空格
 export function trim(str){
     return str.replace(/(^\\s*)|(\\s*$)/g,"");
@@ -74,7 +75,7 @@ export function trimAll(str){
                 </pre>
                 <div className="title">首字母大写</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
                         {`export function firstUpCase(str){
     return str.toLowerCase().replace(/(^[a-z])|(\\s+[a-z])/g,function(value){
         return value.toUpperCase();
@@ -84,7 +85,7 @@ export function trimAll(str){
                 </pre>
                 <div className="title">数字，字符串按照三个分割</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
                         {`export function numberSplit(str){
     return String(str).replace(/\\B(?=(\\d{3})+(?!\\d{1}))/g,",")
 }`}
@@ -92,7 +93,7 @@ export function trimAll(str){
                 </pre>
                 <div className="title">金额转成文字格式</div>
                 <pre className="hljs">
-                    <code>
+                    <code className="lang-css">
                         {`/**
 * 金额转成文字大小写格式金额
 * splitFour方法：处理数字转化为4个字符的数组
@@ -196,8 +197,8 @@ export function numToText(num,type){
                 </pre>
                 <div className="title">密码强度</div>
                 <pre className="hljs">
-                    <code>
-{`/**
+                    <code className="lang-css">
+                        {`/**
  * 密码强度验证
  * @param {String} str
 */
@@ -279,24 +280,25 @@ export function CharMode(str) {
 
     }
     componentDidMount() {
+        Prism.highlightAll();
         //var a = 9502310790;
 
         //console.log(numToText(a,true));
 
         //console.log(/[^a-z]/i.test("A"));
 
-        
+
 
         //console.log(CharMode("123SDDasd"));
 
         //var a = "123123asdasdDDFasd";
 
         //console.log(/\d+([A-Z]+|[a-z]+)/.exec(a))
-        var a = ["a","b","c","d","e"];
-console.log(a.indexOf("b"));   // 返回1
-console.log(a.indexOf("h"));   // 返回-1
-console.log(a.lastIndexOf("b"));  // 返回2
-console.log(a.lastIndexOf("h"));  // 返回-1
+        var a = ["a", "b", "c", "d", "e"];
+        console.log(a.indexOf("b"));   // 返回1
+        console.log(a.indexOf("h"));   // 返回-1
+        console.log(a.lastIndexOf("b"));  // 返回2
+        console.log(a.lastIndexOf("h"));  // 返回-1
 
     }
 }

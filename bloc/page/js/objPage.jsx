@@ -1,10 +1,11 @@
 import React,{Component,ReactDOM} from "react";
+import Prism from 'prismjs';
 
 export default class ObjPage extends Component{
     render(){
         return (<div>
             <pre className="hljs"> 
-                <code>
+                <code className="lang-css">
 {`function Stack(){
     var items = [];
     //添加一个元素到栈顶
@@ -46,7 +47,7 @@ export default class ObjPage extends Component{
     }
     componentDidMount(){
         //hljs.initHighlighting(); 
-
+        Prism.highlightAll();
 
         function Stack(){
             var items = [];

@@ -1,5 +1,6 @@
 import React,{Component,ReactDOM} from "react";
 import "../css/style/js.less";
+import Prism from 'prismjs';
 
 export default class Closure extends Component{
     render(){
@@ -17,7 +18,7 @@ export default class Closure extends Component{
                     怎么来理解这句话呢？请看下面的代码。
                 </div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
 {`function a(){
     var a = 10;
     return function(){
@@ -32,7 +33,7 @@ aaa(); // 10`}
                     从上面代码的运行结果可以看出，a函数在运行过后的变量在返回的结果中有用到的情况下，变量并没有销毁。为了能够更加了解闭包，请看下面的代码。
                 </div>
                 <pre className="hljs"> 
-                    <code className="hljs">
+                    <code className="lang-css">
 {`function a(){
     var a = 0;
     return function(){
@@ -56,5 +57,6 @@ bbb(); // 2`}
     }
     componentDidMount(){
         //hljs.initHighlighting();  
+        Prism.highlightAll();
     }
 }
