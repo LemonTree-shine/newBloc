@@ -237,7 +237,16 @@ super()返回的是子类的实例（super()相当于A.prototype.constructor.cal
             return [...mergeArr,...a.slice(x),...b.slice(y)]
         }
        // merge(a,b);
-        console.log(mergeSort(arr))
+        //console.log(mergeSort(arr))
+
+        var a = new Map();
+        //console.log(a);
+        a.name="chenze";
+        a.set("age","aaaaa")
+        console.log(a.has("age"));
+        console.log(a.name);
+        console.log(a);
+
     } 
 }
 
