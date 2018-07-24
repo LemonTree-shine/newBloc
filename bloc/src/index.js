@@ -33,6 +33,8 @@ import ObjPage from "../page/js/objPage";
 import Closure from "../page/js/closure";
 import Prototype from "../page/js/prototype";
 import CallApply from "../page/js/callApply";
+import HighFun from "../page/js/highFun";
+
 
 /**
  * react页面
@@ -96,6 +98,7 @@ class IndexPage extends Component{
 						<Route path="/jslist/closure" component={Closure}></Route>
 						<Route path="/jslist/prototype" component={Prototype}></Route>
 						<Route path="/jslist/callApply"  component={CallApply}></Route>
+						<Route path="/jslist/highFun"  component={HighFun}></Route>
 						<Route path="/jslist/node" exact component={Node}></Route>
 					</ListCommon>
 				}}></Route>
@@ -149,6 +152,9 @@ class IndexPage extends Component{
 			},{
 				name:"call,apply",
 				link:"/jslist/callApply"
+			},{
+				name:"高阶函数",
+				link:"/jslist/highFun"
 			},{
 				name:"js实现一个栈",
 				link:"/jslist/object"
