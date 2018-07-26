@@ -202,6 +202,28 @@ export default class Index extends Component{
             <div className="sub-title mt15 red">
                 结果：会打印出{`<div>hello world</div>`}；
             </div>
+            <div className="sub-title fw700 mt15">9.children</div>
+            <pre className="hljs">
+                <code className="lang-css">
+{`有一个A组件：
+class A extends Component{
+    render(){
+        return <div>{this.props.children?this.props.children:"没有children"}</div>
+    }
+    constructor(props){
+        super(props);
+    }
+}
+
+用如下两种方式调用：
+<A></A>  结果:没有children;
+<A>hello world</A>  结果:hello world
+`}
+                </code>
+            </pre>
+            <div className="sub-title mt15 red">
+                结论：当调用组件时，在调用的组件中有内容的时候，组件的props下会多一个children属性，该属性就是调用组件时里面写的内容；
+            </div>
         </div>
     }
     constructor(props){
@@ -209,13 +231,13 @@ export default class Index extends Component{
     }
     componentDidMount(){
         Prism.highlightAll();
-        console.log(this.odiv);
+
     }
 }
 
 class A extends Component{
     render(){
-        return <div>ref</div>
+        return <div>{this.props.children?this.props.children:"没有children"}</div>
     }
     constructor(props){
         super(props);

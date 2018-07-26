@@ -42,6 +42,7 @@ import HighFun from "../page/js/highFun";
 import ReactBase from "../page/react/base";
 import ReactProps from "../page/react/props";
 import ReactComponent from "../page/react/componentlist";
+import HighComponent from "../page/react/highComponent";
 
 /**
  * node练习
@@ -112,6 +113,8 @@ class IndexPage extends Component{
 						<Route path="/reactlist/base" component={ReactBase}></Route>
 						<Route path="/reactlist/props" component={ReactProps}></Route>
 						<Route path="/reactlist/component" component={ReactComponent}></Route>
+						<Route path="/reactlist/highComponent" component={HighComponent}></Route>
+						
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -169,7 +172,12 @@ class IndexPage extends Component{
 			},{
 				name:"传值模式",
 				link:"/reactlist/props"
-			},{
+			},
+			// {
+			// 	name:"高阶组件",
+			// 	link:"/reactlist/highComponent"
+			// },
+			{
 				name:"组件",
 				link:"/reactlist/component"
 			}]
