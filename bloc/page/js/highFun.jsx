@@ -33,17 +33,32 @@ function a(){
     }
 }
 
-举例一个简单的高阶函数:计算两个数的绝对值的和
+举例两个个简单的高阶函数:计算两个数的绝对值的和
 function sum(a,b,f){
     return f(a)+f(b)
 }
 sum(-10,-34,Math.abs) //-44
+
+基于map的二次封装：
+function hmap(handleler,arr){
+    return arr.map(handleler);
+}
+
+hmap(function(list){
+    return list*list
+},[1,2,3]);   //[1,4,9]
+
+hmap(function(list){
+    return list+"..."
+},[1,2,3]);   //[1...,2...,3...]
+
 `}
                 </code>
             </pre>
         </div>
     }
     componentDidMount(){
+        Prism.highlightAll();
         function a(a,b,f){
             return f(a)+f(b)
         }
@@ -105,13 +120,13 @@ sum(-10,-34,Math.abs) //-44
 
         // var sum = a();
         // console.log(sum(18)(19)(100)());
-        function fb(num){
-            if(num==1||num==0){
-                return num
-            }else{
-                return fb(num-1)+fb(num-2)
-            }
-        }
-        console.log(fb(2));
+        // function fb(num){
+        //     if(num==1||num==0){
+        //         return num
+        //     }else{
+        //         return fb(num-1)+fb(num-2)
+        //     }
+        // }
+        // console.log(fb(2));
     }
 }
