@@ -5,16 +5,23 @@
     100%{
         opacity: 1; 
         display: block;
+        height: auto;
     }
 }
 
 @keyframes animatnone{
     0%{
         opacity: 1;
+        height: auto;
+    }
+    40%{
+        opacity: 0; 
+        //display: none;
+        //height: 0;
     }
     100%{
         opacity: 0; 
-        display: none;
+        height: 0;
     }
 }
 .c-picker-select{
@@ -76,7 +83,7 @@
 
 .c-none-animate{
     //display: none;
-    animation: animatnone .2s;
+    animation: animatnone .3s;
     animation-fill-mode : forwards;
 }
 

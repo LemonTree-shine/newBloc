@@ -16,7 +16,9 @@ export default class Select extends Component{
                    onClick = {this.showList}
             />
 
-            <ul className={this.state.showFlag?"c-select-ul c-show-animate":this.firstFlag?"c-select-ul c-none":"c-select-ul c-none-animate"}>
+            <ul 
+                className={this.state.showFlag?"c-select-ul c-show-animate":this.firstFlag?"c-select-ul c-none":"c-select-ul c-none-animate"}
+            >
                 {this.renderChildren()}
             </ul>
         </div>
