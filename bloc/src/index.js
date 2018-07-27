@@ -34,6 +34,7 @@ import Closure from "../page/js/closure";
 import Prototype from "../page/js/prototype";
 import CallApply from "../page/js/callApply";
 import HighFun from "../page/js/highFun";
+import SkillPage from "../page/js/skillPage";
 
 
 /**
@@ -100,6 +101,7 @@ class IndexPage extends Component{
 						<Route path="/jslist/prototype" component={Prototype}></Route>
 						<Route path="/jslist/callApply"  component={CallApply}></Route>
 						<Route path="/jslist/highFun"  component={HighFun}></Route>
+						<Route path="/jslist/skill"  component={SkillPage}></Route>
 						<Route path="/jslist/node" exact component={Node}></Route>
 					</ListCommon>
 				}}></Route>
@@ -162,6 +164,10 @@ class IndexPage extends Component{
 				name:"js实现一个栈",
 				link:"/jslist/object"
 			},{
+				name:"不知道的js",
+				link:"/jslist/skill"
+			},
+			{
 				name:"图片上传案例",
 				link:"/jslist/node"
 			}],
