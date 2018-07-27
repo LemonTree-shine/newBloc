@@ -1,6 +1,56 @@
-.x-picker-select{
+@keyframes animatshow{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1; 
+        display: block;
+    }
+}
+
+@keyframes animatnone{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0; 
+        display: none;
+    }
+}
+.c-picker-select{
     position: relative;
     display: inline-block;
+    .c-select-ul{
+        border: 1px solid #ccc;
+        outline: none;
+        width: 150px;
+        font-size: 14px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background: #ffffff;
+        overflow: hidden;
+        position: absolute;
+        top: 32px;
+        li{
+            padding: 5px 8px;
+            cursor: pointer;
+            &:hover{
+                background: #208eee;
+                color:#ffffff   
+            }
+        }
+        .c-current{
+            background: #208eee;
+            color:#ffffff
+        }
+    }
+    .c-input-select-fa{
+        position: absolute;
+        right: 8px;
+        font-size: 27px;
+        color: #6f6d6d;
+        top: 2px;
+    }
 }
 
 .c-select-input{
@@ -18,4 +68,20 @@
 .c-listBox{
     position: absolute;
     width: 150px;
+}
+
+.c-none{
+    display: none;
+}
+
+.c-none-animate{
+    //display: none;
+    animation: animatnone .2s;
+    animation-fill-mode : forwards;
+}
+
+.c-show-animate{
+    //display: none;
+    animation: animatshow .3s;
+    animation-fill-mode : forwards;
 }

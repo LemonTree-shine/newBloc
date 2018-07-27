@@ -2,7 +2,7 @@ import React, { Component, ReactDOM } from "react";
 import reactDOM, { render } from "react-dom";
 //import Paginator from "../../component/paginator/paginator.jsx";
 
-import { Button, CheckBox, CheckBoxGroup, Dlog, Form, Input, Paginator, Radio, GroupRadio, Toast } from "../../component/common.js";
+import { Button, CheckBox, CheckBoxGroup, Dlog, Form, Input, Paginator, Radio, GroupRadio, Toast ,Select,ListItem} from "../../component/common.js";
 
 export default class ReactComponent extends Component {
     render() {
@@ -48,6 +48,15 @@ export default class ReactComponent extends Component {
                 <div style={{marginTop:"10px"}}>
                     <Button className="c-button-primary">提交</Button>
                 </div>
+                <br/>
+                <br/>
+                <div>
+                    <Select name="test" value="0" onChange={this.selectChange}>
+                        <ListItem code="">全部</ListItem>
+                        <ListItem code="0">hello world</ListItem>
+                        <ListItem code="1">come back</ListItem>
+                    </Select>
+                </div>
             </Form>
         </div>
     }
@@ -56,6 +65,10 @@ export default class ReactComponent extends Component {
     }
     componentDidMount() {
 
+    }
+    selectChange = (s)=>{
+        //alert(s);
+        console.log(s);
     }
 
     handleChange = (e, s) => {

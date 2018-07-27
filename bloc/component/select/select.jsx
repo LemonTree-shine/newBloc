@@ -5,106 +5,110 @@ import "./select.less";
 import Form,{Input} from "../form/form.jsx";
 
 export default class Select extends Component{
+
 	render(){
-        return (<div className="x-picker-select" onClick={this.handleClick}>
-            <div  className="c-textBox">
-                <input ref="aaa" type="text" className="c-input c-select-input" placeholder={this.props.placeholder} name={this.props.name} readOnly value={this.state.VALUE} data-selectInput={true} data-code={this.code}/>
-                <div className="c-icon c-select-icon">&#xe6b4;</div>
-            </div>
-            <ul ref="thisul" className="c-listBox" style={this.state.showFlag?{display:"block"}:{display:"none"}}>
-                {this.renderChildren(this.props)}
+        return <div className="c-picker-select">
+            <i className="fa fa-angle-down fa-2x c-input-select c-input-select-fa" aria-hidden="true" onClick = {this.showList}></i>
+            <input className="c-input c-input-select" 
+                readOnly
+                   type="text" 
+                   value={this.state.text} 
+                   onClick = {this.showList}
+            />
+
+            <ul className={this.state.showFlag?"c-select-ul c-show-animate":this.firstFlag?"c-select-ul c-none":"c-select-ul c-none-animate"}>
+                {this.renderChildren()}
             </ul>
-        </div>)
+        </div>
     }
     constructor(props){
         super(props);
         this.state = {
-            showFlag:false,
-            VALUE:""
-        }   
+            text:"",
+            showFlag:false
+        }
     }
 
-    
-    code = this.props.value;
+    //是不是首次进来加载
+    firstFlag = true;
 
-    handleClick = (e)=>{
+    //默认值
+    value = this.props.value||"";
+
+    //name设置
+    name = this.props.name||"";
+
+    //设置选中值
+    setData = (value,text)=>{
+        this.value = value;
+        this.setState({
+            text:text,
+            showFlag:false
+        });
+        
+        //调用父组件传递的onChange事件
+        if(this.props.onChange){
+            this.props.onChange(value);
+        }
+
+        setTimeout(()=>{
+            if(this.firstFlag){
+                this.firstFlag = false;
+            }
+        },0)
+    }
+
+    //切换下啦选择
+    showList = ()=>{
         this.setState({
             showFlag:!this.state.showFlag
         });
-    }
-    showValue = (getCurrentValue)=>{
-        //debugger;
-        this.setState({VALUE:getCurrentValue.children})
-        //this.VALUE = getCurrentValue.children;
-        console.log(this);
+        //return false;
     }
 
-    setCode = (getcode)=>{
-        this.code = getcode.code;
-    }
-
-    renderChildren = (props)=>{
+    //渲染子节点
+    renderChildren = ()=>{
         //通过react.children方法给嵌套组件传递参数
         return React.Children.map(this.props.children,child=>{
             return React.cloneElement(child, {
-                //父组件的方法挂载到props.showValue上，以便子组件内部通过props调用
-                showValue:this.showValue,
-                propsValue:this.VALUE,
-                setCode:this.setCode,
-                currentCode:this.code
+                setData:this.setData,
+                currentCode:this.value
             })
-    
-            //console.log(child);
         });
     }
 
     componentDidMount(){
         document.addEventListener("click",(e)=>{
-            if(/c-select-input/.test(e.target.className)||/select-item/.test(e.target.className)||/x-picker-select/.test(e.target.className)||/c-select-icon/.test(e.target.className)){
-                return;
+            if(/c-input-select/.test(e.target.className)){
+                return false;
             }else{
-                //alert(123);
-                //console.log(this.refs.thisul.style.display)
-                if(this.refs.thisul.style.display=="block"){
-                    this.setState({
-                        showFlag:false
-                    });
-                }
+                this.setState({
+                    showFlag:false
+                });
             }
-            //console.log();
-            //alert(123);
-        },true)
+        });
     }
+
 }
 
 
 export class ListItem extends Component{
     render(){
-        return (<li className="select-item" value={this.props.value} onClick={this.handleClick}>{this.props.children}</li>)
+        return (<li className={this.props.currentCode==this.props.code?"select-item c-current":"select-item"} onClick={()=>{this.handleClick(this.props.code,this.props.children)}}>{this.props.children}</li>)
     }
     constructor(props){
         super(props);
-        //this.state = {name:"123123"}
-        ////debugger;
-        if(this.props.currentCode==this.props.code){
-            this.props.showValue(this.props);
+        //初始化选中
+        if(this.props.currentCode == this.props.code){
+            this.props.setData(this.props.code,this.props.children);
         }
     }
-    handleClick = ()=>{
-        //设置显示的值
-        this.props.showValue(this.props);
-
-        //设置表单上传的code值
-        this.props.setCode(this.props);
-    }
     componentDidMount(){
-        console.log(this);
-        // if(this.props.currentCode==this.props.code){
-        //     this.props.showValue(this.props);
-        // }
+
     }
-    componentWillReceiveProps(nextprops){
-        ////debugger;
-        console.log(nextprops);
+
+    handleClick = (key,value)=>{
+        this.props.setData(key,value);
     }
+
 }
