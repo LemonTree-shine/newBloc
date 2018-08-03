@@ -36,39 +36,25 @@ export default class ReactComponent extends Component {
 			<Button className="c-button-primary c-space" onClick={()=>this.handleClick("右下角","rightBottom")}>右下角</Button>
             <br/>
             <br/>
-            <Form ref="form" onSubmit={this.handleSubmit}>
-                <label>年龄：</label>
-                <div className="c-textBox c-space">
-                    <Input name="userName" pattern={/^\d+$/} patternmessage="年龄只能为数字" required value={12}/>
-                </div>
-                <label>邮箱地址：</label>
-                <div  className="c-textBox c-space">
-                    <Input name="age" required pattern={/^.+@.+\.com$/} patternmessage="邮箱格式有错误" value="18815288453@163.com"/>
-                </div>
-                <div style={{marginTop:"10px"}}>
-                    <Button className="c-button-primary">提交</Button>
-                </div>
-                <br/>
-                <br/>
-                <div>
-                    <Select name="test" value="0" onChange={this.selectChange}>
-                        <ListItem code="">全部</ListItem>
-                        <ListItem code="0">hello world</ListItem>
-                        <ListItem code="1">come back</ListItem>
-                    </Select>
-                </div>
+            <Form>
+                <Input name="email" onInput={this.test} pattern={/.+@.+\.com$/} required/>
+                <Input name="phone" onInput={this.test} pattern={/^188\d{8}$/} required/>
+                <Select name="select">
+                    <ListItem code="asdkkk">asd</ListItem>
+                </Select>
             </Form>
         </div>
     }
     state = {
         total: 30000
     }
+
     componentDidMount() {
 
     }
     selectChange = (s)=>{
         //alert(s);
-        console.log(s);
+        //console.log(s);
     }
 
     handleChange = (e, s) => {
@@ -80,11 +66,6 @@ export default class ReactComponent extends Component {
     }
     
     handleSubmit = (value)=>{
-        if(this.refs.form.onvalid){
-            alert("恭喜你，通过了验证");
-            console.log(this.refs.form);
-        }else{
-            alert("不要意思，没有通过验证哦！");
-        }
+
     }
 }

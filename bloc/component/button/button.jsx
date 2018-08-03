@@ -10,6 +10,7 @@ export default class Button extends Component{
             onClick={this.props.onClick}
             onSubmit={this.props.onSubmit}
             disabled={this.props.disabled?this.props.disabled:""}
+            style={this.props.style}
             >
             {this.props.children}
         </button>)

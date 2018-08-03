@@ -1,6 +1,7 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 
+
 import "./select.less";
 import Form,{Input} from "../form/form.jsx";
 
@@ -80,6 +81,10 @@ export default class Select extends Component{
     }
 
     componentDidMount(){
+        if(this.props.pFun){
+            this.props.pFun(this)
+        }
+        
         document.addEventListener("click",(e)=>{
             if(/c-input-select/.test(e.target.className)){
                 return false;
