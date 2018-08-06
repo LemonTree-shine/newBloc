@@ -11,14 +11,16 @@ export default class Select extends Component{
         return <div className="c-picker-select">
             <i className="fa fa-angle-down fa-2x c-input-select c-input-select-fa" aria-hidden="true" onClick = {this.showList}></i>
             <input className="c-input c-input-select" 
+                ref = {input=>this.INPUT=input}
                 readOnly
-                   type="text" 
-                   value={this.state.text} 
-                   onClick = {this.showList}
+                type="text" 
+                value={this.state.text} 
+                onClick = {this.showList}
+                name={this.name}
             />
 
             <ul 
-                className={this.state.showFlag?"c-select-ul c-show-animate":this.firstFlag?"c-select-ul c-none":"c-select-ul c-none-animate"}
+                className={this.state.showFlag?"c-select-ul c-show-animate":this.firstFlag?"c-select-ul c-none":"c-select-ul c-none"}
             >
                 {this.renderChildren()}
             </ul>
@@ -30,6 +32,8 @@ export default class Select extends Component{
             text:"",
             showFlag:false
         }
+        
+        
     }
 
     //是不是首次进来加载
@@ -38,12 +42,16 @@ export default class Select extends Component{
     //默认值
     value = this.props.value||"";
 
+    //text
+    text = "";
+
     //name设置
     name = this.props.name||"";
 
     //设置选中值
     setData = (value,text)=>{
         this.value = value;
+        this.text = text;
         this.setState({
             text:text,
             showFlag:false
@@ -58,7 +66,12 @@ export default class Select extends Component{
             if(this.firstFlag){
                 this.firstFlag = false;
             }
-        },0)
+        },0);
+
+        //每次赋值的时候手动触发onInput事件
+        if(this.INPUT){
+            this.triggerEven('HTMLEvents')
+        }
     }
 
     //切换下啦选择
@@ -81,8 +94,8 @@ export default class Select extends Component{
     }
 
     componentDidMount(){
-        if(this.props.pFun){
-            this.props.pFun(this)
+        if(this.props.getCurrentComponent){
+            this.props.getCurrentComponent(this)
         }
         
         document.addEventListener("click",(e)=>{
@@ -94,6 +107,15 @@ export default class Select extends Component{
                 });
             }
         });
+
+        
+        
+    }
+
+    triggerEven = (eventName)=>{
+        var evObj = document.createEvent(eventName);
+        evObj.initEvent( 'input', true, true );
+        this.INPUT.dispatchEvent(evObj);
     }
 
 }

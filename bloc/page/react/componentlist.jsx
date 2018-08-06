@@ -36,13 +36,31 @@ export default class ReactComponent extends Component {
 			<Button className="c-button-primary c-space" onClick={()=>this.handleClick("右下角","rightBottom")}>右下角</Button>
             <br/>
             <br/>
-            <Form>
-                <Input name="email" onInput={this.test} pattern={/.+@.+\.com$/} required/>
-                <Input name="phone" onInput={this.test} pattern={/^188\d{8}$/} required/>
-                <Select name="select">
+            <Form ref="formtest" onSubmit = {(value)=>{
+                console.log(value);
+                alert("恭喜你，通过验证！")
+            }}>
+                <Input ref="ref11" name="email11" required/>
+                <div style={{display:'inline-block',marginLeft:'10px'}}>
+                    <Input ref="ref1" name="email" required/>
+                </div>
+                <div style={{display:'inline-block',marginLeft:'10px',marginRight:"10px"}}>
+                    <div>
+                        <Input ref="ref2" name="phone" pattern={/^188\d{8}$/} patternMessage="电话号码格式" value="bbbb" required/>
+                    </div>
+                </div>
+                <Select ref="ref3" name="select" value="asdkkk">
                     <ListItem code="asdkkk">asd</ListItem>
+                    <ListItem code="asdkkk2">asd2</ListItem>
+                    <ListItem code="asdkkk3">asd3</ListItem>
                 </Select>
+                <div style={{marginTop:'10px'}}>
+                    <Button>测试</Button>
+                </div>
+                
             </Form>
+
+            
         </div>
     }
     state = {
