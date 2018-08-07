@@ -1,0 +1,16 @@
+{
+  "name": "easy-copydir",
+  "version": "1.0.0",
+  "description": "简单复制一个文件夹，只要输入一个入口文件夹和一个出口文件夹地址",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "copy",
+    "node",
+    "fs"
+  ],
+  "author": "https://github.com/LemonTree-shine",
+  "license": "ISC"
+}

@@ -94,7 +94,7 @@ configs = {
 	},
 	plugins: PLUGIN,
 	resolve: {
-	  extensions: ['.vue','.js','.jsx', '.json', ' '],
+	  extensions: ['.vue','.js','.jsx', '.json', '.ts','.tsx'],
 	}
 }
 

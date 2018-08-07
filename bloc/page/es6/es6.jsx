@@ -162,26 +162,16 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
     a = 10;
     person = "chenze111"
     componentDidMount() {
-        //console.log(<A/>);
-        class A {
-            constructor(){
-
+        class EventEmitter{
+            eventList = {}
+            on = (eventName,callback)=>{
+                eventList[eventName] = ()=>{
+                    callback()
+                }
             }
         }
-
-        class B extends A {
-            constructor(){
-                
-                var a = super();
-                console.log(super()==this)
-            }
-
-            c(){
-            }
-            
-        }
-
-        var aa = new B();
+        
+        
     }
 }
 
