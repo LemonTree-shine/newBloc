@@ -57,10 +57,10 @@ export default class ReactComponent extends Component {
                 <div style={{marginTop:'10px'}}>
                     <Button>测试</Button>
                 </div>
-                
             </Form>
-
-            
+            <br/>
+            <br/>
+            <Button onClick={this.openDlog}>测试</Button>
         </div>
     }
     state = {
@@ -85,5 +85,14 @@ export default class ReactComponent extends Component {
     
     handleSubmit = (value)=>{
 
+    }
+
+    //弹窗测试
+    openDlog = ()=>{
+        Dlog.show("标题","asdasd","success",(dialog)=>{
+            alert(123);
+            dialog.close();
+            return false;
+        });
     }
 }

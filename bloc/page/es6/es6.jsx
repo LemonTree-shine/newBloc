@@ -162,16 +162,6 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
     a = 10;
     person = "chenze111"
     componentDidMount() {
-        class EventEmitter{
-            eventList = {}
-            on = (eventName,callback)=>{
-                eventList[eventName] = ()=>{
-                    callback()
-                }
-            }
-        }
-        
-        
     }
 }
 

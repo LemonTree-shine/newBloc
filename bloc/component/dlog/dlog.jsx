@@ -107,7 +107,7 @@ export default class Dlog extends Component{
         r.icon = icon?icon:r.icon;
         if(success){
             r.handleOk = ()=>{
-                let falg = success();
+                let falg = success(r);
                 //console.log(falg);
 
                 //success不return false的时候，返回undefined
