@@ -160,8 +160,14 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
 
     }
     a = 10;
-    person = "chenze111"
+    person = "chenze111";
+
+    get value(){
+        return this.person;
+    }
+
     componentDidMount() {
+        console.log(this.value)
     }
 }
 

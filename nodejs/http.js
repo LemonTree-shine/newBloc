@@ -6,6 +6,9 @@ var querystring = require('querystring');
 
 function main(){
     var server = http.createServer(function(req,res){
+        console.log(req.headers.origin)
+        
+
         //console.log(url.parse(req.url));
         if(req.url=="/favicon.ico"){
             return;
@@ -14,30 +17,25 @@ function main(){
             renderHTML(req,res,req.url);
             return;
         }
+        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+        res.setHeader('Access-Control-Allow-Headers', 'Origin,Content-Type, Content-Length');
+        res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Credentials', true);
         console.log(req.method)
         //处理url
         var parts = url.parse(req.url).pathname.split("/");
+        console.log(parts);
 
         //处理get请求方式
         //console.log(querystring.parse(url.parse(req.url).query))
 
         //处理post请求方式
         var data = "";
-        req.on("data",function(result){
-            data+=result;
-        });
-        req.on("end",function(){
-            //data+=result;
-            console.log(JSON.parse(data))
-        })
-
-        //区分路由地址
-        switch(parts[1]){
-            case "index":
-                renderJSON(req,res,{path:"index"});
-                break;
-            default:
-                renderERROR(req,res)
+        if(req.method=="POST"){
+            //处理get请求
+            methodsPost(req,res,data,parts);
+        }else if(req.method=="OPTIONS"){
+            renderJSON(req,res,"");
         }
     });
 
@@ -71,6 +69,26 @@ function renderHTML(req,res,path){
         res.writeHead(200, {"Content-type":"text/html;charset=utf-8"});  
         res.end(files);
     });
+}
+
+
+function methodsPost(req,res,options,parts){
+    var data = options;
+    req.on("data",function(result){
+        data+=result;
+    });
+    req.on("end",function(){
+        //data+=result;
+        //console.log(JSON.parse(data))
+        //区分路由地址
+        switch(parts[1]){
+            case "index":
+                renderJSON(req,res,JSON.parse(data));
+                break;
+            default:
+                renderERROR(req,res)
+        }
+    })
 }
 
 main();

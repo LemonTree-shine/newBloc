@@ -61,6 +61,7 @@ function Ajax(option){
 	if(defaultOption.async){
 		
 		xmlhttp.onreadystatechange=function(data){
+
     		if (xmlhttp.readyState==4 && xmlhttp.status==200){
 		        defaultOption.success(JSON.parse(xmlhttp.response));
 		    }

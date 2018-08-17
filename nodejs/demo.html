@@ -15,10 +15,11 @@
     Ajax({
         url:"http://localhost:9999/index",
         type:"post",
+        contentType:"application/json",
         data:{name:"chenze",age:"25"},
         success:(data)=>{
             console.log(data);
-            document.body.innerHTML=data.path;
+            document.body.innerHTML=data.name+":"+data.age;
         }
     });
 </script>
