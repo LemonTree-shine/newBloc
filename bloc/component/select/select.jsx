@@ -17,6 +17,7 @@ export default class Select extends Component{
                 value={this.state.text} 
                 onClick = {this.showList}
                 name={this.name}
+                style={this.props.style}
             />
 
             <ul 

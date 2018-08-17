@@ -163,11 +163,12 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
     person = "chenze111";
 
     get value(){
-        return this.person;
+        return this.person
     }
 
     componentDidMount() {
-        console.log(this.value)
+        //console.log(this.value);
+
     }
 }
 
@@ -392,122 +393,7 @@ class A extends Component {
     // console.log(a);
 }
 
-// react源码
-// {
-//     //react.js;
-//     var ReactBaseClasses = require('./ReactBaseClasses');
 
-//     var React = {
-//         Component: ReactBaseClasses.Component
-//     }
-//     module.exports = React;
-
-
-//     //ReactBaseClasses.js
-//     /**
-//      * ReactBaseClasses就是这个导出的一个对象
-//      * 从这里可以看出react中的Component实际上是继承了ReactComponent；
-//     */
-//     module.exports = {
-//         Component: ReactComponent,
-//         PureComponent: ReactPureComponent
-//     };
-
-//     //分析ReactComponent；
-//     /**
-//      * 实际是一个构造函数
-//     */
-//     function ReactComponent(props, context, updater) {
-//         this.props = props;
-//         this.context = context;
-//         this.refs = emptyObject;
-
-//         this.updater = updater || ReactNoopUpdateQueue;
-//     }
-
-//     ReactComponent.prototype.isReactComponent = {};
-
-//     ReactComponent.prototype.setState = function (partialState, callback) {
-
-//     };
-//     ReactComponent.prototype.forceUpdate = function (callback) {
-
-//     };
-
-
-
-//     /**
-//      * 组件的render方法
-//      * 组件和类的区别就在于每个组件都有一个render方法
-//      * 组件通过babel把es6语法转成es5时，
-//      * 
-//     */
-//     //假设有组件A
-//     class A extends Component {
-//         render() {
-//             return <div>hello world</div>
-//         }
-//         constructor() {
-//             super();
-//             debugger;
-//         }
-//         componentDidMount() {
-//             console.log(this);
-//         }
-//     }
-
-//     //通过babel转译过来时候的一段代码
-//     _createClass(A, [{
-//         key: "render",
-//         value: function render() {
-//             return _react2.default.createElement(
-//                 "div",
-//                 null,
-//                 "hello world"
-//             );
-//         }
-//     }]);
-//     //说明在render的时候，内部会调用react.createElement；
-
-
-//     /*
-//      *来看createElement；
-//      *react.js中有这两句；
-//     */
-//     var ReactElement = require('./ReactElement');
-//     var createElement = ReactElement.createElement;
-
-//     /**
-//      * ReactElement.js
-//     */
-
-//     ReactElement.createElement = function (type, config, children) {
-//         //...
-
-//         return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
-//     }
-
-//     //这里可以看出其实createElement最终还是调用ReactElement；
-
-//     var ReactElement = function (type, key, ref, self, source, owner, props) {
-//         var element = {
-//             // This tag allow us to uniquely identify this as a React Element
-//             $$typeof: REACT_ELEMENT_TYPE,
-
-//             // Built-in properties that belong on the element
-//             type: type,
-//             key: key,
-//             ref: ref,
-//             props: props,
-
-//             // Record the component responsible for creating this element.
-//             _owner: owner
-//         };
-
-//         return element;
-//     };
-
-// }
 
 
 

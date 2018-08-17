@@ -1,11 +1,17 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import "./paginator.less";
+import Select,{ListItem} from "../select/select.jsx";
 
 export default class Paginator extends Component{
     render(){
         return (<div className="c-paginator-box clearfix">
-            <span  className="c-paginator-text">共&nbsp;{this.state.total}&nbsp;条</span>
+            <span  className="c-paginator-text">共&nbsp;{this.state.total}&nbsp;条，</span>
+            <span  className="c-paginator-text">每页 <Select style={{width:"65px"}} value={this.state.pageSize} onChange={this.changeTest}>
+                <ListItem code={10}>10</ListItem>
+                <ListItem code={20}>20</ListItem>
+                <ListItem code={50}>50</ListItem>
+            </Select> 条</span>
             <div className="clearfix c-right c-turn-page-box">
                 <span className="c-paginator-text">跳至:</span>
                 <input className="c-paginator-turnPage" type="text" ref="input"/>
@@ -109,7 +115,6 @@ export default class Paginator extends Component{
             curPage:++this.state.curPage
         },()=>{
             this.props.onChange(this,this.state);
-            //console.log(this);
         });
     }
     prePage = ()=>{
@@ -117,7 +122,6 @@ export default class Paginator extends Component{
             curPage:--this.state.curPage
         },()=>{
             this.props.onChange(this,this.state);
-            //console.log(this);
         });
     }
 
@@ -153,5 +157,26 @@ export default class Paginator extends Component{
                 });
             }
         });
+    }
+
+    changeTest = (value)=>{
+        console.log(value);
+        this.setState({
+            pageSize:value,
+            curPage:1
+        },()=>{
+            this.props.onChange(this,this.state);
+        });
+
+        var num = Math.ceil(this.state.total/value);
+        if(num>1){
+            var newList = [];
+            for(var i = 0;i<num;i++){
+                newList.push(i+1);
+            }
+            this.setState({
+                pageList:newList
+            });
+        }
     }
 }

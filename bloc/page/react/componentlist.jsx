@@ -15,7 +15,7 @@ export default class ReactComponent extends Component {
             <Button className="c-button-danger c-space" disabled="disabled">禁用</Button>
             <Button className="c-button-primary c-button-small c-space">小尺寸</Button>
             <Button className="c-button-primary c-button-large c-space">大尺寸</Button>
-            <Paginator total={this.state.total} pageSize={25} onChange={this.handleChange} />
+            <Paginator total={this.state.total} pageSize={20} onChange={this.handleChange} />
             <br/>
             <CheckBoxGroup ref={(input) => { return this.thisCom = input }}>
                 <CheckBox name="book" value="看书" />
