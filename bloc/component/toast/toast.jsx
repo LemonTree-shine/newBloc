@@ -57,7 +57,9 @@ export default class Toast extends Component{
         }else if(position==="rightBottom"){
             toast.classContent += " c-toast-right-bottom"
         }
-       
+       if(document.querySelector(".c-toast")){
+           return false
+       }
         var oDiv = document.createElement("div");
         document.body.append(oDiv);
         reactDOM.render(
@@ -67,19 +69,7 @@ export default class Toast extends Component{
 
         setTimeout(()=>{
             toast.close();
-            //resolve();
-        },2000)
-
-        // new Promise((resolve,reject)=>{
-
-        //     setTimeout(()=>{
-        //         //toast.close();
-        //         resolve();
-        //     },2000)
-            
-        // }).then(()=>{
-        //     toast.close();
-        // });
+        },1500)
         
     }
 }

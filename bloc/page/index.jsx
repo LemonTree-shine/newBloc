@@ -3,6 +3,8 @@ import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
 import "../style/index.less";
 
+import {Toast} from "../component/common";
+
 
 export default class Index extends Component{
     render(){
@@ -48,7 +50,7 @@ export default class Index extends Component{
                                     <img  className="icon left" src="assets/icon/type.svg" alt=""/>
                                     <span className="left">{value.type}</span>
                                 </div>
-                                <div className="type-box left clearfix" onClick = {()=>{this.addCount(value)}}>
+                                <div className="type-box left clearfix" onClick = {()=>{this.addCount(value,index)}}>
                                     <img className="icon left" src="assets/icon/good.svg" alt=""/>
                                     <span className="left">{value.count}</span>
                                 </div>
@@ -104,24 +106,39 @@ export default class Index extends Component{
             url:window.ENVPATH+"index",
             type:"post",
             success:(data)=>{
-                console.log(data.data);
                 this.setState({
                     list:data.data
                 });
+                if(!window.localStorage.arr){
+                    var array = [];
+                    data.data.forEach((value,index)=>{
+                        array.push(0);
+                    });
+                    window.localStorage.arr = JSON.stringify(array);
+                }
             }
         });
     }
-    addCount = (value)=>{
-        //alert(value.count)
+    addCount = (value,curIndex)=>{
+        //console.log(value.ID,index)
+
         Ajax({
             url:window.ENVPATH+"addCount",
             type:"post",
             data:{count:value.count,id:value.ID},
             success:(data)=>{
-                console.log(data.data);
-                this.setState({
-                    list:data.data
-                });
+                var conutFlagArr = JSON.parse(window.localStorage.arr);
+                if(conutFlagArr[curIndex]=="1"){
+                    //alert("每个用户只能点击一次哦");
+                    Toast.show("每个用户只能点击一次哦")
+                }else{
+                    conutFlagArr[curIndex] = 1;
+                    this.setState({
+                        list:data.data
+                    });
+                    window.localStorage.arr = JSON.stringify(conutFlagArr);
+                }
+                
             }
         });
     }

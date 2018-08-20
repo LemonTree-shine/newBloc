@@ -49,6 +49,8 @@ console.log(b);    //["c", "d"] 原数组没有改变`}
 {`var a = ["a","b"];
 console.log(a.join("-"))    //a-b 把数组按照自定符号拼接字符串
 console.log(a)  //["a","b"] 不会改变原数组
+
+
 slice用法:array.slice(start,end) //start:开始索引,end:结束索引
 
 var a = ["a", "b","c","d","e"];
@@ -56,6 +58,8 @@ console.log(a.slice());    //["a", "b", "c", "d", "e"]  不给参数默认返回
 console.log(a.slice(1,3));    //["b", "c"]  返回索引从1到3的值，不包括最后一个索引(3)
 console.log(a.slice(-1));    //["e"] 负数情况下从数组的末尾开始取值
 console.log(a);  //["a", "b", "c", "d", "e"]    //不改变原数组
+
+
 splice用法:array.splice(index,num,items) //index:开始索引; num:删除的个数; items:要插入的数据
 
 var a = ["a", "b","c","d","e"];
@@ -136,14 +140,14 @@ console.log(a)  //[1, 2, 3, 4, 5, 6, 7, 8, 9]  原数组没有改变
 
 some示例:
 var a = [1,2,3,4,5,6,7,8,9];
-var b = a.every((value)=>{
-    return value>=1
+var b = a.some((value)=>{
+    return value>=5
 });
-var c = a.every((value)=>{
-    return value>5
+var c = a.some((value)=>{
+    return value>10
 });
-console.log(b)  //true 数组中所有项都大于等于1，所以返回true
-console.log(c)  //false  数组中存在1，2，3，4比5小，所以返回false
+console.log(b)  //true 数组中存在大于5的输，所以返回true
+console.log(c)  //false  数组中不存在比10大的数，所以返回false
 console.log(a)  //[1, 2, 3, 4, 5, 6, 7, 8, 9]  原数组没有改变`}
                     </code>
                 </pre>
