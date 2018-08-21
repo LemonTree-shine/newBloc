@@ -12,10 +12,13 @@ export default class Dlog extends Component{
             }}>
                 {this.dlogHead()}
                 <div className="c-dlog-content">
-                    {this.icon=="warning"?<div className={this.icon+" c-icon"}>&#xe654;</div>:""}
-                    {this.icon=="success"?<div className={this.icon+" c-icon"}>&#xe653;</div>:""}
-                    {this.icon=="error"?<div className={this.icon+" c-icon"}>&#xe655;</div>:""}
-                    {this.content}
+                    {this.icon=="warning"?<div className={this.icon+" fa fa-exclamation-triangle"}></div>:""}
+                    {this.icon=="success"?<div className={this.icon+"  fa fa-check"}></div>:""}
+                    {this.icon=="error"?<div className={this.icon+"  fa fa-close"}></div>:""}
+                    <div className="dlog-content">
+                        {this.content}
+                    </div>
+                    
                 </div>
                 {this.dlogFoot()}
             </div>
