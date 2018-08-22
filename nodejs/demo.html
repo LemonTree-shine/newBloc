@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="http://47.105.42.195/assets/ajax.js"></script>
+    <script src="http://cdn.socket.io/stable/socket.io.js"></script>
 </head>
+
 <body>
     asd
 </body>
 <script>
     //console.log(Ajax)
     Ajax({
-        url:"http://localhost:9999/index",
-        type:"post",
-        contentType:"application/json",
-        data:{name:"chenze",age:"25"},
-        success:(data)=>{
+        url: "http://localhost:9999/index",
+        type: "post",
+        contentType: "application/json",
+        data: { name: "chenze", age: "25" },
+        success: (data) => {
             console.log(data);
-            document.body.innerHTML=data.name+":"+data.age;
+            document.body.innerHTML = data.name + ":" + data.age;
         }
     });
+
+    var socket = io.connect('http://localhost');
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+    });
+
 </script>
+
 </html>

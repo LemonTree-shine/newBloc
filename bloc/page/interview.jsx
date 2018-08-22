@@ -9,7 +9,7 @@ export default class Interview extends Component {
                 <div className="title">1.js基本类型</div>
                 <pre className="hljs">
                     <code className="lang-css">
-                        String,Number,Boolean,Number,Null
+                        String,Number,Boolean,Undefined,Null
                     </code>
                 </pre>
                 <div className="title">js引用类型</div>
