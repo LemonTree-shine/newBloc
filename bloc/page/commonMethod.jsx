@@ -272,6 +272,92 @@ export function CharMode(str) {
 }`}
                     </code>
                 </pre>
+                <div className="title">10进制转化成其他进制</div>
+                <pre className="hljs">
+                    <code className="lang-css">
+{`js方法：toString(x)  //x代表需要转化的进制
+
+自己的方法实现:
+/**
+ * 十进制转化成其他进制方法
+ * num:表示一个十进制的数字
+ * type:表示所要转到的目标进制
+*/
+function changeSystem(num,type){
+    var list = [];
+    var resNum = num;
+    var result = "";
+    
+    var changeList = {
+        "10":"a",
+        "11":"b",
+        "12":"c",
+        "13":"d",
+        "14":"e",
+        "15":"f",
+    }
+    while(resNum>0){
+        if(resNum%type>=10){
+            list.push(changeList[resNum%type]);
+        }else{
+            list.push(resNum%type);
+        }
+        resNum = parseInt(resNum/type);
+    }
+
+    for(let i = list.length-1;i>=0;i--){
+        result+=list[i];
+    }
+    return result;
+}
+
+var a = 110;
+console.log(changeSystem(a,"2")); //1101110
+console.log(a.toString("2"));     //1101110
+`}
+                    </code>
+                </pre>
+                <div className="title">其他进制转换成10进制</div>
+                <pre className="hljs">
+                    <code className="lang-css">
+{`js方法：parseInt(a,b)  //a代表需当前进制的值，b表示当前进制（不填代表10进制）;
+
+自己的方法实现
+/**
+ * 其他进制转换成10进制
+ * str表示当前进制的值
+ * cur表示当前进制
+*/
+function to10System(str,cur){
+    var result = 0;
+    var changeList = {
+        "a":"10",
+        "b":"11",
+        "c":"12",
+        "d":"13",
+        "e":"14",
+        "f":"15",
+    }
+    var size = str.length-1;
+    var length = str.length-1;
+    while(size>=0){
+        if(changeList[str[length-size]]){
+            result+= changeList[str[length-size]]*Math.pow(cur,size);
+        }else{
+            result+= str[length-size]*Math.pow(cur,size);
+        }
+        
+        size--;
+    }
+    return result;
+}
+
+var a = "110";
+console.log(to10System("f00","16")); //3840
+console.log(parseInt("f00","16"));   //3840
+`}
+                    </code>
+                </pre>
             </div>
         </div>)
 
@@ -281,24 +367,76 @@ export function CharMode(str) {
     }
     componentDidMount() {
         Prism.highlightAll();
-        //var a = 9502310790;
 
-        //console.log(numToText(a,true));
-
-        //console.log(/[^a-z]/i.test("A"));
+        
 
 
+        /**
+         * 十进制转化成其他进制方法
+        */
+        function changeSystem(num,type){
+            var list = [];
+            var resNum = num;
+            var result = "";
+            
+            var changeList = {
+                "10":"a",
+                "11":"b",
+                "12":"c",
+                "13":"d",
+                "14":"e",
+                "15":"f",
+            }
+            while(resNum>0){
+                if(resNum%type>=10){
+                    list.push(changeList[resNum%type]);
+                }else{
+                    list.push(resNum%type);
+                }
+                resNum = parseInt(resNum/type);
+            }
+        
+            for(let i = list.length-1;i>=0;i--){
+                result+=list[i];
+            }
+            return result;
+        }
 
-        //console.log(CharMode("123SDDasd"));
+        var b = 3840;
+        console.log(changeSystem(b,"16"));
+        console.log(b.toString("16"));
 
-        //var a = "123123asdasdDDFasd";
+        /**
+         * 其他进制转换成10进制
+         * str表示当前进制的值
+         * cur表示当前进制
+        */
+        function to10System(str,cur){
+            var result = 0;
+            var changeList = {
+                "a":"10",
+                "b":"11",
+                "c":"12",
+                "d":"13",
+                "e":"14",
+                "f":"15",
+            }
+            var size = str.length-1;
+            var length = str.length-1;
+            while(size>=0){
+                if(changeList[str[length-size]]){
+                    result+= changeList[str[length-size]]*Math.pow(cur,size);
+                }else{
+                    result+= str[length-size]*Math.pow(cur,size);
+                }
+                
+                size--;
+            }
+            return result;
+        }
 
-        //console.log(/\d+([A-Z]+|[a-z]+)/.exec(a))
-        var a = ["a", "b", "c", "d", "e"];
-        console.log(a.indexOf("b"));   // 返回1
-        console.log(a.indexOf("h"));   // 返回-1
-        console.log(a.lastIndexOf("b"));  // 返回2
-        console.log(a.lastIndexOf("h"));  // 返回-1
-
+        var a = "110";
+        console.log(to10System("f00","16"));
+        console.log(parseInt("f00","16"));
     }
 }

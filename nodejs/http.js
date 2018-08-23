@@ -14,8 +14,8 @@ function main() {
         if (req.url == "/favicon.ico") {
             return;
         }
-        if (req.url == "/demo.html") {
-            renderHTML(req, res, req.url);
+        if (req.url == "/demo") {
+            renderHTML(req, res, req.url+".html");
             return;
         }
         res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
@@ -50,9 +50,9 @@ function main() {
 
     //console.log(io);
 
-    io.on('connection', function (socket) {
+    io.sockets.on('connection', function (socket) {
         socket.emit('news', { hello: 'world' });
-        socket.on('my other event', function (data) {
+        socket.on('aaa', function (data) {
             console.log(data);
         });
     });
