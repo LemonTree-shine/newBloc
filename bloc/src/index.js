@@ -44,6 +44,7 @@ import ReactBase from "../page/react/base";
 import ReactProps from "../page/react/props";
 import ReactComponent from "../page/react/componentlist";
 import HighComponent from "../page/react/highComponent";
+import ManageLayout from "../page/react/manageLayout";
 
 /**
  * node练习
@@ -116,7 +117,7 @@ class IndexPage extends Component{
 						<Route path="/reactlist/props" component={ReactProps}></Route>
 						<Route path="/reactlist/component" component={ReactComponent}></Route>
 						<Route path="/reactlist/highComponent" component={HighComponent}></Route>
-						
+						<Route path="/reactlist/ManageLayout" component={ManageLayout}></Route>
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -186,6 +187,9 @@ class IndexPage extends Component{
 			{
 				name:"组件",
 				link:"/reactlist/component"
+			},{
+				name:"后台管理模版布局",
+				link:"/reactlist/ManageLayout"
 			}]
 		}
 	}

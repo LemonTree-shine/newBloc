@@ -15,6 +15,7 @@ export default class Dlog extends Component{
                     {this.icon=="warning"?<div className={this.icon+" fa fa-exclamation-triangle"}></div>:""}
                     {this.icon=="success"?<div className={this.icon+"  fa fa-check"}></div>:""}
                     {this.icon=="error"?<div className={this.icon+"  fa fa-close"}></div>:""}
+                    {this.icon=="question"?<div className={this.icon+"  fa fa-question-circle"}></div>:""}
                     <div className="dlog-content">
                         {this.content}
                     </div>

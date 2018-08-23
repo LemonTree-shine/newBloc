@@ -165,7 +165,10 @@ export default class Paginator extends Component{
             pageSize:value,
             curPage:1
         },()=>{
-            this.props.onChange(this,this.state);
+            if(this.props.onChange){
+                this.props.onChange(this,this.state);
+            }
+            
         });
 
         var num = Math.ceil(this.state.total/value);
