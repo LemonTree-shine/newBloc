@@ -42,19 +42,15 @@ export default class Manage extends Component{
             url:window.ENVPATH+"manage/getUser",
             type:"post",
             success:(data)=>{
-                // console.log(data.data);
-                // this.setState({
-                //     leaveList:data.data
-                // });
-                console.log(data.hash);
                 if(data.code!=0){
                     location.replace("/#/login");
+                }else{
+                    this.getList();
                 }
-                //location.replace(data.hash);
             }
         });
 
-        this.getList();
+        
         
     }
 
