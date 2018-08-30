@@ -470,3 +470,25 @@ function to10System(str, cur) {
     }
     return result;
 }
+
+/**
+ * 对象指定的前面添加项
+ * var a = {"a":1,"k":"123123"};
+ * insertBeforeObj(a,"b","2","a")
+ * 
+ * 结果：{"a":1,"b":"2","k":"123123"}
+*/
+function insertBeforeObj(obj,newkey,value,curKey){
+    var temObj;
+    for(const key in obj){
+        if(key===curKey){
+            temObj = {};
+        }
+        if(temObj){
+            temObj[key] = obj[key];
+            delete obj[key];
+        }
+    }
+    obj[newkey] = value;
+    return {...obj,...temObj};
+}

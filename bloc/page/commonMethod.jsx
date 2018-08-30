@@ -403,8 +403,8 @@ console.log(parseInt("f00","16"));   //3840
         }
 
         var b = 3840;
-        console.log(changeSystem(b,"16"));
-        console.log(b.toString("16"));
+        // console.log(changeSystem(b,"16"));
+        // console.log(b.toString("16"));
 
         /**
          * 其他进制转换成10进制
@@ -436,7 +436,26 @@ console.log(parseInt("f00","16"));   //3840
         }
 
         var a = "110";
-        console.log(to10System("f00","16"));
-        console.log(parseInt("f00","16"));
+        // console.log(to10System("f00","16"));
+        // console.log(parseInt("f00","16"));
+
+        var a = {"a":1,"k":"123123"};
+
+        function insertBeforeObj(obj,newkey,value,curKey){
+            var temObj;
+            for(const key in obj){
+                if(key===curKey){
+                    temObj = {};
+                }
+                if(temObj){
+                    temObj[key] = obj[key];
+                    delete obj[key];
+                }
+            }
+            obj[newkey] = value;
+            return {...obj,...temObj};
+        }
+
+        console.log(insertBeforeObj(a,"b","2","a"));
     }
 }

@@ -7,9 +7,6 @@ var io = require('socket.io')();
 
 function main() {
     var server = http.createServer(function (req, res) {
-        console.log(req.headers.origin)
-
-
         //console.log(url.parse(req.url));
         if (req.url == "/favicon.ico") {
             return;
@@ -18,10 +15,7 @@ function main() {
             renderHTML(req, res, req.url+".html");
             return;
         }
-        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-        res.setHeader('Access-Control-Allow-Headers', 'Origin,Content-Type, Content-Length');
-        res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-        res.setHeader('Access-Control-Allow-Credentials', true);
+        
         console.log(req.method)
         //处理url
         var parts = url.parse(req.url).pathname.split("/");
@@ -37,6 +31,20 @@ function main() {
             methodsPost(req, res, data, parts);
         } else if (req.method == "OPTIONS") {
             renderJSON(req, res, "");
+        }else{
+            switch (parts[1]) {
+                case "index":
+                    console.log(req)
+                    res.writeHead(200, {
+                        'Content-Type': "application/json",
+                        "Pragma": "no-cache",
+                        "Cache-Control": "no-cache"
+                    })
+                    res.end(JSON.stringify({}))
+                    break;
+                default:
+                    renderERROR(req, res)
+            }
         }
     });
 
@@ -46,20 +54,14 @@ function main() {
         console.log("server run 9999");
     });
 
-    io.listen(server);
-
-    //console.log(io);
-
-    io.sockets.on('connection', function (socket) {
-        socket.emit('news', { hello: 'world' });
-        socket.on('aaa', function (data) {
-            console.log(data);
-        });
-    });
 }
 
 //返回一个json
 function renderJSON(req, res, data) {
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    res.setHeader('Access-Control-Allow-Headers', 'Origin,Content-Type, Content-Length');
+    res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     res.writeHead(200, {
         'Content-Type': "application/json",
         "Pragma": "no-cache",
