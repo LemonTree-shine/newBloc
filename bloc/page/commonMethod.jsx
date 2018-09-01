@@ -456,6 +456,42 @@ console.log(parseInt("f00","16"));   //3840
             return {...obj,...temObj};
         }
 
-        console.log(insertBeforeObj(a,"b","2","a"));
+        //console.log(insertBeforeObj(a,"b","2","a"));
+
+        /**
+         * x1,y1为目标点
+         * x2,y2和x3,y3为确定的一条直线
+        */
+        function pointToLine(x1,y1,x2,y2,x3,y3){
+
+
+            //判断线是否是横着或者竖着的
+            if(x1-x2===x1-x3){
+                return Math.abs(x1-x2);
+            }
+            if(y1-y2===y1-y3){
+                return Math.abs(y1-y2);
+            }
+
+            //定义点到线的距离为h
+            var h;
+            //计算三边长度
+            var ab = Math.sqrt(Math.pow((x1-x2), 2)+Math.pow((y1-y2), 2));
+            var ac = Math.sqrt(Math.pow((x1-x3), 2)+Math.pow((y1-y3), 2));
+            var bc = Math.sqrt(Math.pow((x2-x3), 2)+Math.pow((y2-y3), 2));
+
+            //半周长
+            var p = (ab+ac+bc)/2;
+
+            //根据海伦公式，求面积s
+            var s = Math.sqrt(p*(p-ab)*(p-ac)*(p-bc));
+
+            //根据面积s=1/2*bc*h;
+            h = 2*s/bc;
+            
+            return h;
+        }
+
+        console.log(pointToLine(0,0,2,0,0,2));
     }
 }

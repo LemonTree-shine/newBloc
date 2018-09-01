@@ -115,7 +115,6 @@ router.use("/getUser", function (req, res, next) {
         code:0,
         data:{
             username:req.session.username,
-            password:req.session.password,
         }
     });
 });

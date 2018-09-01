@@ -474,8 +474,7 @@ function to10System(str, cur) {
 /**
  * 对象指定的前面添加项
  * var a = {"a":1,"k":"123123"};
- * insertBeforeObj(a,"b","2","a")
- * 
+ * insertBeforeObj(a,"b","2","a");
  * 结果：{"a":1,"b":"2","k":"123123"}
 */
 function insertBeforeObj(obj,newkey,value,curKey){
@@ -491,4 +490,9 @@ function insertBeforeObj(obj,newkey,value,curKey){
     }
     obj[newkey] = value;
     return {...obj,...temObj};
+}
+
+//点到点的距离
+function a(x1,y1,x2,y2){
+    return Math.sqrt(Math.pow((x2-x1), 2)+Math.pow((y2-y1), 2));
 }

@@ -5,6 +5,7 @@ import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter }
 export default class Manage extends Component{
     render(){
         return <div style={{paddingTop:"20px"}}>
+            <div style={{"fontSize":"20px","marginLeft":"10px","marginBottom":"20px"}}>欢迎登录，{this.state.userName}</div>
             <button onClick={this.bushu} style={{padding:"10px",marginBottom:"20px",marginLeft:"10px"}}>部署</button>
             <table style={{"width":"100%"}}>
                 <tbody>
@@ -34,7 +35,8 @@ export default class Manage extends Component{
     constructor(props){
         super(props);
         this.state = {
-            list:[]
+            list:[],
+            userName:""
         }
     }
     componentDidMount(){
@@ -46,12 +48,12 @@ export default class Manage extends Component{
                     location.replace("/#/login");
                 }else{
                     this.getList();
+                    this.setState({
+                        userName:data.data.username
+                    });
                 }
             }
-        });
-
-        
-        
+        }); 
     }
 
     getList = ()=>{
