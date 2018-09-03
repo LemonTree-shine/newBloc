@@ -1,13 +1,18 @@
 import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
+import "./login.less";
 
 export default class LoginIn extends Component{
     render(){
-        return <div>
-            用户名:<input className="username" defaultValue="" type="text"/>
-            密码:<input className="password" defaultValue="" type="text"/>
-            <button onClick={this.loginIn}>登入</button>
+        return <div className="c-login">
+            <div className="input-box">
+                <label>用户名:</label><input className="username" defaultValue="" type="text"/>
+            </div>
+            <div className="input-box">
+                <label>密码:</label><input className="password" defaultValue="" type="text"/>
+            </div>
+            <button className="login-btn" onClick={this.loginIn}>登入</button>
         </div>
     }
     componentDidMount(){
