@@ -45,6 +45,7 @@ import ReactProps from "../page/react/props";
 import ReactComponent from "../page/react/componentlist";
 import HighComponent from "../page/react/highComponent";
 import ManageLayout from "../page/react/manageLayout";
+import ContextType from "../page/react/contextType";
 
 /**
  * node练习
@@ -118,6 +119,7 @@ class IndexPage extends Component{
 						<Route path="/reactlist/component" component={ReactComponent}></Route>
 						<Route path="/reactlist/highComponent" component={HighComponent}></Route>
 						<Route path="/reactlist/ManageLayout" component={ManageLayout}></Route>
+						<Route path="/reactlist/ContextType" component={ContextType}></Route>
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -179,6 +181,9 @@ class IndexPage extends Component{
 			},{
 				name:"传值模式",
 				link:"/reactlist/props"
+			},{
+				name:"context传值",
+				link:"/reactlist/ContextType"
 			},
 			// {
 			// 	name:"高阶组件",
