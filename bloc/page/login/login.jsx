@@ -5,8 +5,8 @@ import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter }
 export default class LoginIn extends Component{
     render(){
         return <div>
-            用户名:<input className="username" defaultValue="admin" type="text"/>
-            密码:<input className="password" defaultValue="wscz1993" type="text"/>
+            用户名:<input className="username" defaultValue="" type="text"/>
+            密码:<input className="password" defaultValue="" type="text"/>
             <button onClick={this.loginIn}>登入</button>
         </div>
     }
