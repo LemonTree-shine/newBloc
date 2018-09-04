@@ -2,6 +2,8 @@ import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
 
+import {showShade,hideShade} from "../../common/util";
+
 export default class Manage extends Component{
     render(){
         return <div style={{paddingTop:"20px"}}>
@@ -95,8 +97,12 @@ export default class Manage extends Component{
         Ajax({
             url:window.ENVPATH+"manage/deploy",
             type:"post",
+            before:()=>{
+                showShade(null)
+            },
             success:(data)=>{
                 alert("部署成功");
+                hideShade();
             }
         });
     }

@@ -1,5 +1,5 @@
 //遮罩层
-export function showShade(path) {
+export function showShade(text,close) {
     var oDiv = document.createElement("div");
 
     oDiv.className = "dlog-shade";
@@ -12,7 +12,7 @@ export function showShade(path) {
     oDiv.style.zIndex = "1000";
     oDiv.style.color = "#ffffff";
 
-    oDiv.innerHTML = `<div style='position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;'><img src='${path}'/></div>`;
+    oDiv.innerHTML = `<div style='position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;'>${text?text:"正在加载中..."}</div>`;
 
     document.body.style.overflow = "hidden";
 
@@ -30,7 +30,10 @@ export function showShade(path) {
 
     closeBtn.innerHTML = "x";
 
-    oDiv.append(closeBtn);
+    if(close){
+        oDiv.append(closeBtn);
+    }
+    
 
     closeBtn.onclick = function () {
         oDiv.remove();

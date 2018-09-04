@@ -4,6 +4,7 @@ function Ajax(option){
 		"url":option.url || "www.baidu.com",//地址
 		"type":option.type || "GET",		//请求方式
 		"async":option.async || true,	//是否异步处理
+		"before":option.before || function(){},
 		"success":option.success || function(){return false},
 		"withCredentials":true,   //当再跨域请求中需要带cookie信息的时候，这个值要设置为true，并且服务端的Access-Control-Allow-Origin必须指定域名，不能设置为*
 		"data":option.data || {}
@@ -59,9 +60,10 @@ function Ajax(option){
 
 
 	if(defaultOption.async){
-		
-		xmlhttp.onreadystatechange=function(data){
+		//请求前处理
+		defaultOption.before();
 
+		xmlhttp.onreadystatechange=function(data){
     		if (xmlhttp.readyState==4 && xmlhttp.status==200){
 		        defaultOption.success(JSON.parse(xmlhttp.response));
 		    }
