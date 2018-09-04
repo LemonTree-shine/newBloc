@@ -12,7 +12,10 @@ export function showShade(text,close) {
     oDiv.style.zIndex = "1000";
     oDiv.style.color = "#ffffff";
 
-    oDiv.innerHTML = `<div style='position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;'>${text?text:"正在加载中..."}</div>`;
+    oDiv.innerHTML = `<div style='position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;'>
+        <i style="font-size:25px" class="fa fa-spinner loading-animate" aria-hidden="true"></i>
+        <span>${text?text:"正在加载中..."}</span>
+    </div>`;
 
     document.body.style.overflow = "hidden";
 
