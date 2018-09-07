@@ -23,7 +23,6 @@ server.use(session({
 
 //引用路由
 var login = require("./router/login.js");
-
 //登陆的接口统一前缀/manage
 server.use("/manage",login);
 
