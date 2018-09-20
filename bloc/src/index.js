@@ -46,6 +46,7 @@ import ReactComponent from "../page/react/componentlist";
 import HighComponent from "../page/react/highComponent";
 import ManageLayout from "../page/react/manageLayout";
 import ContextType from "../page/react/contextType";
+import AntdPage from "../page/react/antdPage";
 
 /**
  * node练习
@@ -120,6 +121,7 @@ class IndexPage extends Component{
 						<Route path="/reactlist/highComponent" component={HighComponent}></Route>
 						<Route path="/reactlist/ManageLayout" component={ManageLayout}></Route>
 						<Route path="/reactlist/ContextType" component={ContextType}></Route>
+						<Route path="/reactlist/AntdPage" component={AntdPage}></Route>
 					</ListCommon>
 				}}></Route>
 			</Switch>
@@ -195,6 +197,9 @@ class IndexPage extends Component{
 			},{
 				name:"后台管理模版布局",
 				link:"/reactlist/ManageLayout"
+			},{
+				name:"antd后台管理",
+				link:"/reactlist/AntdPage"
 			}]
 		}
 	}

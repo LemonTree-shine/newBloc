@@ -3,7 +3,6 @@ import reactDOM,{render} from "react-dom";
 
 import { Button, CheckBox, CheckBoxGroup, Dlog, Form, Input, Paginator, Radio, GroupRadio, Toast ,Select,ListItem} from "../../component/common.js";
 
-
 import "./layout.less";
 
 export default class ManageLayout extends Component{
@@ -65,7 +64,6 @@ export default class ManageLayout extends Component{
             <div style={{marginTop:"15px"}}>
                 <Paginator total={this.state.total} pageSize={10} onChange={this.changePage}/>
             </div>
-            
         </div>
     }
     //初始化state数据
