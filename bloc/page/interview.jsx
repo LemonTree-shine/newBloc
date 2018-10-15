@@ -2,6 +2,7 @@ import React, { Component, ReactDOM } from "react";
 import "../style/interview.less";
 import Prism from 'prismjs';
 
+
 export default class Interview extends Component {
     render() {
         return (<div className="interview">
@@ -245,5 +246,7 @@ binarySearch(a,45645,0,a.length-1);   //找到了 45645 11
     componentDidMount() {
         //hljs.initHighlighting();  
         Prism.highlightAll();
+        var a = require("../common/util");
+        console.log(a);
     }
 }

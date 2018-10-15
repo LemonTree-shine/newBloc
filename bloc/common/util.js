@@ -1,3 +1,6 @@
+export default class A{
+    
+}
 //遮罩层
 export function showShade(text,close) {
     var oDiv = document.createElement("div");

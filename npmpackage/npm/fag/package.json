@@ -1,0 +1,17 @@
+{
+  "name": "fag",
+  "version": "1.0.0",
+  "description": "\"快速生成路由等各种功能\"",
+  "main": "index.js",
+  "bin":{
+    "fat":"./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "fat"
+  ],
+  "author": "chenze",
+  "license": "ISC"
+}
