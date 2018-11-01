@@ -1,10 +1,10 @@
 {
-  "name": "fag",
-  "version": "1.0.0",
+  "name": "regn",
+  "version": "1.0.2",
   "description": "\"快速生成路由等各种功能\"",
   "main": "index.js",
   "bin":{
-    "fat":"./index.js"
+    "regn":"./index.js"
   },
   "scripts": {
     "start": "node index.js"

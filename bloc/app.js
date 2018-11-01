@@ -40,36 +40,6 @@ var server = http.createServer(app);
 reload(server, app);
 server.listen(port, function(){
     console.log('App (dev) is now running on port '+port+'!');
-
-    function copy(inDirUrl) {
-        var allFileList = {};
-        //读取目标文件列表
-        var fileList = fs.readdirSync(inDirUrl);
-        /**
-         * 循环
-        */
-        fileList.forEach((list) => {
-
-            var statInfo = fs.lstatSync(inDirUrl + "/" + list);
-
-            //判断这个是一个文件
-            if (statInfo.isFile()) {
-                allFileList[inDirUrl + "/" + list] = inDirUrl + "/" + list;
-            }
-
-            //这是一个文件夹
-            if (statInfo.isDirectory()) {
-                allFileList = Object.assign(allFileList,copy(inDirUrl + "/" + list))
-            }
-        });
-        return allFileList;
-    }
-
-    fs.writeFile("src/router.js",`export var router = ${JSON.stringify(copy("page"))}`,function(err){
-        if(err){
-            console.log(err);
-        }
-    });
 });
 
 if(process.platform=="win32"){
