@@ -19,7 +19,7 @@ export default class Index extends Component{
                     <img src="assets/images/1.jpeg" alt=""/>
                     <div className="banner-tips">具有无限魅力的js</div>
                 </div>
-                <div className="banner-list">
+                <div className="banner-list" onClick={()=>{this.queryData("react")}}>
                     <img src="assets/images/5.jpeg" alt=""/>
                     <div className="banner-tips">简介灵活的react</div>
                 </div>
@@ -152,6 +152,12 @@ export default class Index extends Component{
                 break;
             case "interview":
                 location.replace("/#/home/interview");
+                break;
+            case "react":
+                location.replace("/#/reactlist/base");
+                break;
+            case "aboutme":
+                location.replace("/#/aboutme");
                 break;
             default:
                 return false;

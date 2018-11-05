@@ -46,7 +46,7 @@ server.use(function(req,res,next){
 
 //启动服务器
 var app = server.listen("8081",function(){
-    console.log("启动了");
+    console.log("localhost:8081启动了");
 });
 
 //屏蔽favicon.ico干扰
@@ -202,4 +202,38 @@ server.post("/upload",function(req,res){
         path:pathArr
     });
       
-})
+});
+
+
+
+/**给老江那边提供数据的接口 */
+var data = {data:[
+    {
+        imgurl:"https://p.qpic.cn/music_cover/ibSiagqKjw1zfTgxY7F8CfE3ksDxxDqx4Mqjr78kibLSGSOoXeVlKo2jA/300?n=1",
+        title:"每日新歌：谭咏麟：“为何甘当废青？",
+        num:"7836"
+    },
+    {
+        imgurl:"https://p.qpic.cn/music_cover/VfPyDEibP5AFKDInicW5BYjREAViabqy184EzTEfFbepdqLPVjGjRRMpw/300?n=1",
+        title:"重返十年前的回忆",
+        num:"5947"
+    },
+    {
+        imgurl:"https://p.qpic.cn/music_cover/5Olm9QQMvPcH2ZbO9nA2zFLeSEe2iajGkk5E7q32pAouM5X8T1J0pDA/300?n=1",
+        title:"2018 EMA 提名名单",
+        num:"14.1万"
+    },
+    {
+        imgurl:"https://p.qpic.cn/music_cover/VegtfhPVKWTjiaibFBAtpyeDjuGHy48088CRiabFXvAmCDMBsCtg9A3EA/300?n=1",
+        title:"ClariS：戴着面具的可爱妹妹们",
+        num:"29.4万"
+    },
+    {
+        imgurl:"https://p.qpic.cn/music_cover/ULH0NLW4u55E7T2PEnniavRBkibwPr5gdlCAH15lPXCECTHc1aJONyqw/300?n=1",
+        title:"云雾中的古老传说：传统彝族民谣",
+        num:"17.2万"
+    }
+]}
+server.get("/music",function(req,res){
+    res.send(data);
+});

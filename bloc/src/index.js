@@ -55,6 +55,7 @@ import AntdPage from "../page/react/antdPage";
 import Node from "../page/node/node";
 
 
+
 /**
  * es6练习
 */
@@ -125,6 +126,8 @@ class IndexPage extends Component{
 					</ListCommon>
 				}}></Route>
 			</Switch>
+			{/* 关于我的页面 */}
+			{/* <Route path="/aboutme" exact component={AboutMe}></Route> */}
 			{/* 后套管理页面 */}
 			<Route path="/manage" exact component={Manage}></Route>
 			<Route path="/login" exact component={LoginIn}></Route>

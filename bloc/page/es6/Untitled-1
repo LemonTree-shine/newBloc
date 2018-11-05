@@ -1,0 +1,12 @@
+{
+    name:"name1",
+    amount:"111",
+    list:[
+        {name:"name2"},
+        {name:"name2"},
+    ],
+    list2:[],
+    obj1:{
+        name:name
+    }
+}
