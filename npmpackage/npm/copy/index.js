@@ -1,12 +1,5 @@
 const fs = require("fs");
 
-//目标目录
-//var inDirUrl = __dirname+"/indir";
-//输出目录
-//var outDirUrl = __dirname+"/outdir";
-
-
-
 function copy(inDirUrl,outDirUrl){
     //读取目标文件列表
     var fileList = fs.readdirSync(inDirUrl);
@@ -44,4 +37,3 @@ function copy(inDirUrl,outDirUrl){
 
 module.exports = copy;
 
-//copy(inDirUrl,outDirUrl);

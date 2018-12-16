@@ -1,0 +1,15 @@
+js遗忘知识点补充
+
+1.数字类型部分
+var a = 0x12;  //0x开头的代表16进制
+var a = 012;   //0开头代表8进制
+
+js中分母为0表示无穷大或者无穷小；
+1/0 Infinity
+-1/0 -Infinity
+分子分母都为0，表示NaN
+0/0 NaN
+
+Infinity,-Infinity,NaN都是number类型
+
+js浮点精度问题要注意
