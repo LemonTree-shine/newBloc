@@ -62,6 +62,8 @@ import Node from "../page/node/node";
 
 import Es6 from "../page/es6/es6";
 
+import Notice from "../page/notice";
+
 
 
 
@@ -131,6 +133,8 @@ class IndexPage extends Component{
 			{/* 后套管理页面 */}
 			<Route path="/manage" exact component={Manage}></Route>
 			<Route path="/login" exact component={LoginIn}></Route>
+			<Route path="/notice" exact component={Notice}></Route>
+			
 		</div>)
 	}
 	constructor(props){

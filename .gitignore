@@ -1,2 +1,2 @@
 /server/www/upload
-/node_modules
+**/node_modules/

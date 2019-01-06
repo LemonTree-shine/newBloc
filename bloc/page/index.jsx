@@ -151,7 +151,7 @@ export default class Index extends Component{
                 location.replace("/#/jslist/string");
                 break;
             case "interview":
-                location.replace("/#/home/interview");
+                //location.replace("/#/home/interview");
                 break;
             case "react":
                 location.replace("/#/reactlist/base");
