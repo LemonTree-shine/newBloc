@@ -4,10 +4,16 @@ var ContextTheme = createContext({});
 
 export class ProviderCom extends Component{
     render(){
-        return <ContextTheme.Provider value={this.props.data}>
+        return <ContextTheme.Provider value={this.state}>
             {this.props.children}
         </ContextTheme.Provider>
     }
+    state = {
+        ...this.props.defaultData,
+        dispatch:(a)=>{
+            this.setState(a)
+        }
+    };
 }
 
 //用高阶组件处理contex传值问题

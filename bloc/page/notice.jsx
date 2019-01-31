@@ -25,6 +25,7 @@ export default class Notice extends Component{
                 <p>11.JSON.stringify只能序列化对象的可枚举属性，不能序列化原型属性</p>
                 <p>12.理解稀疏数组(类似[1,,,2,,"asdasd"])的for循环和foreach循环的区别</p>
                 <p>13.delete不影响数组长度,将数组变成一个稀疏数组</p>
+                <p>14.严格模式下全局的this是undefined</p>
             </div>
         </div>
     }
@@ -46,8 +47,13 @@ export default class Notice extends Component{
         // console.log(a.__proto__);
         //console.log(Object.prototype);
 
-
-           
+        var a = new Date().getTime();
+        window.onload = function(){
+            var b = new Date().getTime();
+            console.log(b-a)
+        }
+        
+         
     }
 }
 

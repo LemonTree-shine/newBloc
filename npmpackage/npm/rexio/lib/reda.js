@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ProviderCom = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 exports.higrCom = higrCom;
@@ -27,9 +29,21 @@ var ProviderCom = exports.ProviderCom = function (_Component) {
     _inherits(ProviderCom, _Component);
 
     function ProviderCom() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, ProviderCom);
 
-        return _possibleConstructorReturn(this, (ProviderCom.__proto__ || Object.getPrototypeOf(ProviderCom)).apply(this, arguments));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ProviderCom.__proto__ || Object.getPrototypeOf(ProviderCom)).call.apply(_ref, [this].concat(args))), _this), _this.state = _extends({}, _this.props.defaultData, {
+            dispatch: function dispatch(a) {
+                _this.setState(a);
+            }
+        }), _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(ProviderCom, [{
@@ -37,7 +51,7 @@ var ProviderCom = exports.ProviderCom = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 ContextTheme.Provider,
-                { value: this.props.data },
+                { value: this.state },
                 this.props.children
             );
         }

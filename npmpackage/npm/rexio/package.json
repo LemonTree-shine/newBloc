@@ -1,6 +1,6 @@
 {
-  "name": "redaaaatoreaaa",
-  "version": "1.0.2",
+  "name": "rexio",
+  "version": "1.0.1",
   "description": "用context顶层管理数据流，解决数据逐级传递过深带来的不变以及数据的共享问题",
   "main": "index.js",
   "scripts": {
