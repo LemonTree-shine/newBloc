@@ -1,7 +1,7 @@
 function Ajax(option){
 	//定义默认参数
 	var defaultOption = {
-		"url":option.url || "www.baidu.com",//地址
+		"url":option.url || "",//地址
 		"type":option.type || "GET",		//请求方式
 		"async":option.async || true,	//是否异步处理
 		"before":option.before || function(){},
@@ -21,7 +21,7 @@ function Ajax(option){
 
 	
 	
-	xmlhttp.withCredentials = true; //是否允许发送cookie信息
+	
 
 	
 	if(defaultOption.type.toLocaleUpperCase()==="POST"){
@@ -30,6 +30,7 @@ function Ajax(option){
 		 * Content-Type：
 		 * application/x-www-form-urlencoded为表单提交类型
 		*/
+		xmlhttp.withCredentials = true; //是否允许发送cookie信息
 		if(option.contentType){
 			xmlhttp.setRequestHeader("Content-Type", option.contentType);
 			if(/application\/json/.test(option.contentType)){
