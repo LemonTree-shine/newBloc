@@ -87,7 +87,8 @@ router.use("/login", function (req, res, next) {
                 if(JSON.parse(req.body).password == data[0].password){
                     req.session.username = JSON.parse(req.body).username;
                     req.session.password = JSON.parse(req.body).password;
-                    res.setHeader("Set-Cookie","a=1;domain=.xiaogangji.com")
+                    res.cookies("a","1111",{"domain":".xiaogangji.com"});
+                    console.log(res.cookies);
                     res.send({
                         code:0,
                         message:"登入成功!"
