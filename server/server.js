@@ -26,9 +26,9 @@ server.use(session({
     secret:"chenze",
     maxAge: 24*60 * 1000 * 30,
     signed:true,
-    cookie:{
-        domain:".xiaogangji.com"
-    }
+    // cookie:{
+    //     domain:".xiaogangji.com"
+    // }
 }));
 
 //引用路由
