@@ -14,7 +14,6 @@ var app = server.listen("8081",function(){
     console.log("localhost:8081启动了");
 });
 
-// const io = require('socket.io')(app);
 
 
 //解析cookie
@@ -212,9 +211,4 @@ server.post("/upload",function(req,res){
       
 });
 
-io.on("connection",(socket)=>{
-    console.log(socket);
-});
-
-console.log(io)
 
