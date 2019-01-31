@@ -87,7 +87,7 @@ router.use("/login", function (req, res, next) {
                 if(JSON.parse(req.body).password == data[0].password){
                     req.session.username = JSON.parse(req.body).username;
                     req.session.password = JSON.parse(req.body).password;
-                    res.cookie("a","1111",{"domain":".xiaogangji.com"});
+                    res.cookie("a","1111",{"domain":"www.xiaogangji.com:8080"});
                     console.log(res.cookies);
                     res.send({
                         code:0,
